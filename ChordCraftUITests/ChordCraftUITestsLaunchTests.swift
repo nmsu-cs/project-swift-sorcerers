@@ -1,13 +1,13 @@
 //
-//  SimpleCompoUITestsLaunchTests.swift
-//  SimpleCompoUITests
+//  ChordCraftUITestsLaunchTests.swift
+//  ChordCraftUITests
 //
-//  Created by Juan Torres on 3/21/24.
+//  Created by Juan Torres on 3/26/24.
 //
 
 import XCTest
 
-final class SimpleCompoUITestsLaunchTests: XCTestCase {
+final class ChordCraftUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

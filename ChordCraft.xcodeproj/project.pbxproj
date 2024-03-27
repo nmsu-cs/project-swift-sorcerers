@@ -7,62 +7,64 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA5B2CB52BACDDA400D73C74 /* SimpleCompoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2CB42BACDDA400D73C74 /* SimpleCompoApp.swift */; };
-		AA5B2CB72BACDDA400D73C74 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2CB62BACDDA400D73C74 /* ContentView.swift */; };
-		AA5B2CB92BACDDA700D73C74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA5B2CB82BACDDA700D73C74 /* Assets.xcassets */; };
-		AA5B2CBC2BACDDA700D73C74 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA5B2CBB2BACDDA700D73C74 /* Preview Assets.xcassets */; };
-		AA5B2CC72BACDDA700D73C74 /* SimpleCompoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2CC62BACDDA700D73C74 /* SimpleCompoTests.swift */; };
-		AA5B2CD12BACDDA700D73C74 /* SimpleCompoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2CD02BACDDA700D73C74 /* SimpleCompoUITests.swift */; };
-		AA5B2CD32BACDDA700D73C74 /* SimpleCompoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B2CD22BACDDA700D73C74 /* SimpleCompoUITestsLaunchTests.swift */; };
+		AA0EF4482BB3E5550093867B /* ChordCraftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF4472BB3E5550093867B /* ChordCraftApp.swift */; };
+		AA0EF44A2BB3E5550093867B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF4492BB3E5550093867B /* ContentView.swift */; };
+		AA0EF44C2BB3E5550093867B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF44B2BB3E5550093867B /* Item.swift */; };
+		AA0EF44E2BB3E5570093867B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA0EF44D2BB3E5570093867B /* Assets.xcassets */; };
+		AA0EF4512BB3E5570093867B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA0EF4502BB3E5570093867B /* Preview Assets.xcassets */; };
+		AA0EF45C2BB3E5570093867B /* ChordCraftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF45B2BB3E5570093867B /* ChordCraftTests.swift */; };
+		AA0EF4662BB3E5570093867B /* ChordCraftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF4652BB3E5570093867B /* ChordCraftUITests.swift */; };
+		AA0EF4682BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF4672BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		AA5B2CC32BACDDA700D73C74 /* PBXContainerItemProxy */ = {
+		AA0EF4582BB3E5570093867B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = AA5B2CA92BACDDA400D73C74 /* Project object */;
+			containerPortal = AA0EF43C2BB3E5550093867B /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = AA5B2CB02BACDDA400D73C74;
-			remoteInfo = SimpleCompo;
+			remoteGlobalIDString = AA0EF4432BB3E5550093867B;
+			remoteInfo = ChordCraft;
 		};
-		AA5B2CCD2BACDDA700D73C74 /* PBXContainerItemProxy */ = {
+		AA0EF4622BB3E5570093867B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = AA5B2CA92BACDDA400D73C74 /* Project object */;
+			containerPortal = AA0EF43C2BB3E5550093867B /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = AA5B2CB02BACDDA400D73C74;
-			remoteInfo = SimpleCompo;
+			remoteGlobalIDString = AA0EF4432BB3E5550093867B;
+			remoteInfo = ChordCraft;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AA5B2CB12BACDDA400D73C74 /* SimpleCompo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleCompo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA5B2CB42BACDDA400D73C74 /* SimpleCompoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCompoApp.swift; sourceTree = "<group>"; };
-		AA5B2CB62BACDDA400D73C74 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		AA5B2CB82BACDDA700D73C74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AA5B2CBB2BACDDA700D73C74 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		AA5B2CBD2BACDDA700D73C74 /* SimpleCompo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SimpleCompo.entitlements; sourceTree = "<group>"; };
-		AA5B2CC22BACDDA700D73C74 /* SimpleCompoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleCompoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA5B2CC62BACDDA700D73C74 /* SimpleCompoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCompoTests.swift; sourceTree = "<group>"; };
-		AA5B2CCC2BACDDA700D73C74 /* SimpleCompoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleCompoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA5B2CD02BACDDA700D73C74 /* SimpleCompoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCompoUITests.swift; sourceTree = "<group>"; };
-		AA5B2CD22BACDDA700D73C74 /* SimpleCompoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCompoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AA0EF4442BB3E5550093867B /* ChordCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChordCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA0EF4472BB3E5550093867B /* ChordCraftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordCraftApp.swift; sourceTree = "<group>"; };
+		AA0EF4492BB3E5550093867B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AA0EF44B2BB3E5550093867B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		AA0EF44D2BB3E5570093867B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA0EF4502BB3E5570093867B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AA0EF4522BB3E5570093867B /* ChordCraft.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChordCraft.entitlements; sourceTree = "<group>"; };
+		AA0EF4572BB3E5570093867B /* ChordCraftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChordCraftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA0EF45B2BB3E5570093867B /* ChordCraftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordCraftTests.swift; sourceTree = "<group>"; };
+		AA0EF4612BB3E5570093867B /* ChordCraftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChordCraftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA0EF4652BB3E5570093867B /* ChordCraftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordCraftUITests.swift; sourceTree = "<group>"; };
+		AA0EF4672BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordCraftUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		AA5B2CAE2BACDDA400D73C74 /* Frameworks */ = {
+		AA0EF4412BB3E5550093867B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AA5B2CBF2BACDDA700D73C74 /* Frameworks */ = {
+		AA0EF4542BB3E5570093867B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AA5B2CC92BACDDA700D73C74 /* Frameworks */ = {
+		AA0EF45E2BB3E5570093867B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -72,143 +74,144 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AA5B2CA82BACDDA400D73C74 = {
+		AA0EF43B2BB3E5550093867B = {
 			isa = PBXGroup;
 			children = (
-				AA5B2CB32BACDDA400D73C74 /* SimpleCompo */,
-				AA5B2CC52BACDDA700D73C74 /* SimpleCompoTests */,
-				AA5B2CCF2BACDDA700D73C74 /* SimpleCompoUITests */,
-				AA5B2CB22BACDDA400D73C74 /* Products */,
+				AA0EF4462BB3E5550093867B /* ChordCraft */,
+				AA0EF45A2BB3E5570093867B /* ChordCraftTests */,
+				AA0EF4642BB3E5570093867B /* ChordCraftUITests */,
+				AA0EF4452BB3E5550093867B /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		AA5B2CB22BACDDA400D73C74 /* Products */ = {
+		AA0EF4452BB3E5550093867B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AA5B2CB12BACDDA400D73C74 /* SimpleCompo.app */,
-				AA5B2CC22BACDDA700D73C74 /* SimpleCompoTests.xctest */,
-				AA5B2CCC2BACDDA700D73C74 /* SimpleCompoUITests.xctest */,
+				AA0EF4442BB3E5550093867B /* ChordCraft.app */,
+				AA0EF4572BB3E5570093867B /* ChordCraftTests.xctest */,
+				AA0EF4612BB3E5570093867B /* ChordCraftUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AA5B2CB32BACDDA400D73C74 /* SimpleCompo */ = {
+		AA0EF4462BB3E5550093867B /* ChordCraft */ = {
 			isa = PBXGroup;
 			children = (
-				AA5B2CB42BACDDA400D73C74 /* SimpleCompoApp.swift */,
-				AA5B2CB62BACDDA400D73C74 /* ContentView.swift */,
-				AA5B2CB82BACDDA700D73C74 /* Assets.xcassets */,
-				AA5B2CBD2BACDDA700D73C74 /* SimpleCompo.entitlements */,
-				AA5B2CBA2BACDDA700D73C74 /* Preview Content */,
+				AA0EF4472BB3E5550093867B /* ChordCraftApp.swift */,
+				AA0EF4492BB3E5550093867B /* ContentView.swift */,
+				AA0EF44B2BB3E5550093867B /* Item.swift */,
+				AA0EF44D2BB3E5570093867B /* Assets.xcassets */,
+				AA0EF4522BB3E5570093867B /* ChordCraft.entitlements */,
+				AA0EF44F2BB3E5570093867B /* Preview Content */,
 			);
-			path = SimpleCompo;
+			path = ChordCraft;
 			sourceTree = "<group>";
 		};
-		AA5B2CBA2BACDDA700D73C74 /* Preview Content */ = {
+		AA0EF44F2BB3E5570093867B /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				AA5B2CBB2BACDDA700D73C74 /* Preview Assets.xcassets */,
+				AA0EF4502BB3E5570093867B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		AA5B2CC52BACDDA700D73C74 /* SimpleCompoTests */ = {
+		AA0EF45A2BB3E5570093867B /* ChordCraftTests */ = {
 			isa = PBXGroup;
 			children = (
-				AA5B2CC62BACDDA700D73C74 /* SimpleCompoTests.swift */,
+				AA0EF45B2BB3E5570093867B /* ChordCraftTests.swift */,
 			);
-			path = SimpleCompoTests;
+			path = ChordCraftTests;
 			sourceTree = "<group>";
 		};
-		AA5B2CCF2BACDDA700D73C74 /* SimpleCompoUITests */ = {
+		AA0EF4642BB3E5570093867B /* ChordCraftUITests */ = {
 			isa = PBXGroup;
 			children = (
-				AA5B2CD02BACDDA700D73C74 /* SimpleCompoUITests.swift */,
-				AA5B2CD22BACDDA700D73C74 /* SimpleCompoUITestsLaunchTests.swift */,
+				AA0EF4652BB3E5570093867B /* ChordCraftUITests.swift */,
+				AA0EF4672BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift */,
 			);
-			path = SimpleCompoUITests;
+			path = ChordCraftUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AA5B2CB02BACDDA400D73C74 /* SimpleCompo */ = {
+		AA0EF4432BB3E5550093867B /* ChordCraft */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA5B2CD62BACDDA700D73C74 /* Build configuration list for PBXNativeTarget "SimpleCompo" */;
+			buildConfigurationList = AA0EF46B2BB3E5570093867B /* Build configuration list for PBXNativeTarget "ChordCraft" */;
 			buildPhases = (
-				AA5B2CAD2BACDDA400D73C74 /* Sources */,
-				AA5B2CAE2BACDDA400D73C74 /* Frameworks */,
-				AA5B2CAF2BACDDA400D73C74 /* Resources */,
+				AA0EF4402BB3E5550093867B /* Sources */,
+				AA0EF4412BB3E5550093867B /* Frameworks */,
+				AA0EF4422BB3E5550093867B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = SimpleCompo;
-			productName = SimpleCompo;
-			productReference = AA5B2CB12BACDDA400D73C74 /* SimpleCompo.app */;
+			name = ChordCraft;
+			productName = ChordCraft;
+			productReference = AA0EF4442BB3E5550093867B /* ChordCraft.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AA5B2CC12BACDDA700D73C74 /* SimpleCompoTests */ = {
+		AA0EF4562BB3E5570093867B /* ChordCraftTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA5B2CD92BACDDA700D73C74 /* Build configuration list for PBXNativeTarget "SimpleCompoTests" */;
+			buildConfigurationList = AA0EF46E2BB3E5570093867B /* Build configuration list for PBXNativeTarget "ChordCraftTests" */;
 			buildPhases = (
-				AA5B2CBE2BACDDA700D73C74 /* Sources */,
-				AA5B2CBF2BACDDA700D73C74 /* Frameworks */,
-				AA5B2CC02BACDDA700D73C74 /* Resources */,
+				AA0EF4532BB3E5570093867B /* Sources */,
+				AA0EF4542BB3E5570093867B /* Frameworks */,
+				AA0EF4552BB3E5570093867B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				AA5B2CC42BACDDA700D73C74 /* PBXTargetDependency */,
+				AA0EF4592BB3E5570093867B /* PBXTargetDependency */,
 			);
-			name = SimpleCompoTests;
-			productName = SimpleCompoTests;
-			productReference = AA5B2CC22BACDDA700D73C74 /* SimpleCompoTests.xctest */;
+			name = ChordCraftTests;
+			productName = ChordCraftTests;
+			productReference = AA0EF4572BB3E5570093867B /* ChordCraftTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		AA5B2CCB2BACDDA700D73C74 /* SimpleCompoUITests */ = {
+		AA0EF4602BB3E5570093867B /* ChordCraftUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA5B2CDC2BACDDA700D73C74 /* Build configuration list for PBXNativeTarget "SimpleCompoUITests" */;
+			buildConfigurationList = AA0EF4712BB3E5570093867B /* Build configuration list for PBXNativeTarget "ChordCraftUITests" */;
 			buildPhases = (
-				AA5B2CC82BACDDA700D73C74 /* Sources */,
-				AA5B2CC92BACDDA700D73C74 /* Frameworks */,
-				AA5B2CCA2BACDDA700D73C74 /* Resources */,
+				AA0EF45D2BB3E5570093867B /* Sources */,
+				AA0EF45E2BB3E5570093867B /* Frameworks */,
+				AA0EF45F2BB3E5570093867B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				AA5B2CCE2BACDDA700D73C74 /* PBXTargetDependency */,
+				AA0EF4632BB3E5570093867B /* PBXTargetDependency */,
 			);
-			name = SimpleCompoUITests;
-			productName = SimpleCompoUITests;
-			productReference = AA5B2CCC2BACDDA700D73C74 /* SimpleCompoUITests.xctest */;
+			name = ChordCraftUITests;
+			productName = ChordCraftUITests;
+			productReference = AA0EF4612BB3E5570093867B /* ChordCraftUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		AA5B2CA92BACDDA400D73C74 /* Project object */ = {
+		AA0EF43C2BB3E5550093867B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
-					AA5B2CB02BACDDA400D73C74 = {
+					AA0EF4432BB3E5550093867B = {
 						CreatedOnToolsVersion = 15.3;
 					};
-					AA5B2CC12BACDDA700D73C74 = {
+					AA0EF4562BB3E5570093867B = {
 						CreatedOnToolsVersion = 15.3;
-						TestTargetID = AA5B2CB02BACDDA400D73C74;
+						TestTargetID = AA0EF4432BB3E5550093867B;
 					};
-					AA5B2CCB2BACDDA700D73C74 = {
+					AA0EF4602BB3E5570093867B = {
 						CreatedOnToolsVersion = 15.3;
-						TestTargetID = AA5B2CB02BACDDA400D73C74;
+						TestTargetID = AA0EF4432BB3E5550093867B;
 					};
 				};
 			};
-			buildConfigurationList = AA5B2CAC2BACDDA400D73C74 /* Build configuration list for PBXProject "SimpleCompo" */;
+			buildConfigurationList = AA0EF43F2BB3E5550093867B /* Build configuration list for PBXProject "ChordCraft" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -216,36 +219,36 @@
 				en,
 				Base,
 			);
-			mainGroup = AA5B2CA82BACDDA400D73C74;
-			productRefGroup = AA5B2CB22BACDDA400D73C74 /* Products */;
+			mainGroup = AA0EF43B2BB3E5550093867B;
+			productRefGroup = AA0EF4452BB3E5550093867B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AA5B2CB02BACDDA400D73C74 /* SimpleCompo */,
-				AA5B2CC12BACDDA700D73C74 /* SimpleCompoTests */,
-				AA5B2CCB2BACDDA700D73C74 /* SimpleCompoUITests */,
+				AA0EF4432BB3E5550093867B /* ChordCraft */,
+				AA0EF4562BB3E5570093867B /* ChordCraftTests */,
+				AA0EF4602BB3E5570093867B /* ChordCraftUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		AA5B2CAF2BACDDA400D73C74 /* Resources */ = {
+		AA0EF4422BB3E5550093867B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA5B2CBC2BACDDA700D73C74 /* Preview Assets.xcassets in Resources */,
-				AA5B2CB92BACDDA700D73C74 /* Assets.xcassets in Resources */,
+				AA0EF4512BB3E5570093867B /* Preview Assets.xcassets in Resources */,
+				AA0EF44E2BB3E5570093867B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AA5B2CC02BACDDA700D73C74 /* Resources */ = {
+		AA0EF4552BB3E5570093867B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AA5B2CCA2BACDDA700D73C74 /* Resources */ = {
+		AA0EF45F2BB3E5570093867B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -255,49 +258,50 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		AA5B2CAD2BACDDA400D73C74 /* Sources */ = {
+		AA0EF4402BB3E5550093867B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA5B2CB72BACDDA400D73C74 /* ContentView.swift in Sources */,
-				AA5B2CB52BACDDA400D73C74 /* SimpleCompoApp.swift in Sources */,
+				AA0EF44A2BB3E5550093867B /* ContentView.swift in Sources */,
+				AA0EF44C2BB3E5550093867B /* Item.swift in Sources */,
+				AA0EF4482BB3E5550093867B /* ChordCraftApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AA5B2CBE2BACDDA700D73C74 /* Sources */ = {
+		AA0EF4532BB3E5570093867B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA5B2CC72BACDDA700D73C74 /* SimpleCompoTests.swift in Sources */,
+				AA0EF45C2BB3E5570093867B /* ChordCraftTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AA5B2CC82BACDDA700D73C74 /* Sources */ = {
+		AA0EF45D2BB3E5570093867B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA5B2CD12BACDDA700D73C74 /* SimpleCompoUITests.swift in Sources */,
-				AA5B2CD32BACDDA700D73C74 /* SimpleCompoUITestsLaunchTests.swift in Sources */,
+				AA0EF4682BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift in Sources */,
+				AA0EF4662BB3E5570093867B /* ChordCraftUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		AA5B2CC42BACDDA700D73C74 /* PBXTargetDependency */ = {
+		AA0EF4592BB3E5570093867B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AA5B2CB02BACDDA400D73C74 /* SimpleCompo */;
-			targetProxy = AA5B2CC32BACDDA700D73C74 /* PBXContainerItemProxy */;
+			target = AA0EF4432BB3E5550093867B /* ChordCraft */;
+			targetProxy = AA0EF4582BB3E5570093867B /* PBXContainerItemProxy */;
 		};
-		AA5B2CCE2BACDDA700D73C74 /* PBXTargetDependency */ = {
+		AA0EF4632BB3E5570093867B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AA5B2CB02BACDDA400D73C74 /* SimpleCompo */;
-			targetProxy = AA5B2CCD2BACDDA700D73C74 /* PBXContainerItemProxy */;
+			target = AA0EF4432BB3E5550093867B /* ChordCraft */;
+			targetProxy = AA0EF4622BB3E5570093867B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		AA5B2CD42BACDDA700D73C74 /* Debug */ = {
+		AA0EF4692BB3E5570093867B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -360,7 +364,7 @@
 			};
 			name = Debug;
 		};
-		AA5B2CD52BACDDA700D73C74 /* Release */ = {
+		AA0EF46A2BB3E5570093867B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -415,16 +419,16 @@
 			};
 			name = Release;
 		};
-		AA5B2CD72BACDDA700D73C74 /* Debug */ = {
+		AA0EF46C2BB3E5570093867B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SimpleCompo/SimpleCompo.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ChordCraft/ChordCraft.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SimpleCompo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"ChordCraft/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -432,24 +436,25 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = yes.SimpleCompo;
+				PRODUCT_BUNDLE_IDENTIFIER = wizards.ChordCraft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		AA5B2CD82BACDDA700D73C74 /* Release */ = {
+		AA0EF46D2BB3E5570093867B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SimpleCompo/SimpleCompo.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ChordCraft/ChordCraft.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SimpleCompo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"ChordCraft/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -457,15 +462,16 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = yes.SimpleCompo;
+				PRODUCT_BUNDLE_IDENTIFIER = wizards.ChordCraft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
-		AA5B2CDA2BACDDA700D73C74 /* Debug */ = {
+		AA0EF46F2BB3E5570093867B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -473,17 +479,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = yes.SimpleCompoTests;
+				PRODUCT_BUNDLE_IDENTIFIER = wizards.ChordCraftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleCompo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SimpleCompo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChordCraft.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ChordCraft";
 			};
 			name = Debug;
 		};
-		AA5B2CDB2BACDDA700D73C74 /* Release */ = {
+		AA0EF4702BB3E5570093867B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -491,17 +497,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = yes.SimpleCompoTests;
+				PRODUCT_BUNDLE_IDENTIFIER = wizards.ChordCraftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleCompo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SimpleCompo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChordCraft.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ChordCraft";
 			};
 			name = Release;
 		};
-		AA5B2CDD2BACDDA700D73C74 /* Debug */ = {
+		AA0EF4722BB3E5570093867B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -509,15 +515,15 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = yes.SimpleCompoUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = wizards.ChordCraftUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = SimpleCompo;
+				TEST_TARGET_NAME = ChordCraft;
 			};
 			name = Debug;
 		};
-		AA5B2CDE2BACDDA700D73C74 /* Release */ = {
+		AA0EF4732BB3E5570093867B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -525,54 +531,54 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = yes.SimpleCompoUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = wizards.ChordCraftUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = SimpleCompo;
+				TEST_TARGET_NAME = ChordCraft;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AA5B2CAC2BACDDA400D73C74 /* Build configuration list for PBXProject "SimpleCompo" */ = {
+		AA0EF43F2BB3E5550093867B /* Build configuration list for PBXProject "ChordCraft" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AA5B2CD42BACDDA700D73C74 /* Debug */,
-				AA5B2CD52BACDDA700D73C74 /* Release */,
+				AA0EF4692BB3E5570093867B /* Debug */,
+				AA0EF46A2BB3E5570093867B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA5B2CD62BACDDA700D73C74 /* Build configuration list for PBXNativeTarget "SimpleCompo" */ = {
+		AA0EF46B2BB3E5570093867B /* Build configuration list for PBXNativeTarget "ChordCraft" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AA5B2CD72BACDDA700D73C74 /* Debug */,
-				AA5B2CD82BACDDA700D73C74 /* Release */,
+				AA0EF46C2BB3E5570093867B /* Debug */,
+				AA0EF46D2BB3E5570093867B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA5B2CD92BACDDA700D73C74 /* Build configuration list for PBXNativeTarget "SimpleCompoTests" */ = {
+		AA0EF46E2BB3E5570093867B /* Build configuration list for PBXNativeTarget "ChordCraftTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AA5B2CDA2BACDDA700D73C74 /* Debug */,
-				AA5B2CDB2BACDDA700D73C74 /* Release */,
+				AA0EF46F2BB3E5570093867B /* Debug */,
+				AA0EF4702BB3E5570093867B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA5B2CDC2BACDDA700D73C74 /* Build configuration list for PBXNativeTarget "SimpleCompoUITests" */ = {
+		AA0EF4712BB3E5570093867B /* Build configuration list for PBXNativeTarget "ChordCraftUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AA5B2CDD2BACDDA700D73C74 /* Debug */,
-				AA5B2CDE2BACDDA700D73C74 /* Release */,
+				AA0EF4722BB3E5570093867B /* Debug */,
+				AA0EF4732BB3E5570093867B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = AA5B2CA92BACDDA400D73C74 /* Project object */;
+	rootObject = AA0EF43C2BB3E5550093867B /* Project object */;
 }

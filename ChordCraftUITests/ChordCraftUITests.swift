@@ -1,13 +1,12 @@
 //
-//  SimpleCompoUITests.swift
-//  SimpleCompoUITests
+//  ChordCraftUITests.swift
+//  ChordCraftUITests
 //
-//  Created by Juan Torres on 3/21/24.
 //
 
 import XCTest
 
-final class SimpleCompoUITests: XCTestCase {
+final class ChordCraftUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
