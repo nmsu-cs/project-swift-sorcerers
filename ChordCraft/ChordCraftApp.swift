@@ -25,7 +25,8 @@ struct ChordCraftApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            //ContentView()     // uncomment to show text box with file builder
+            ContentViewUI()   // uncomment to show basic UI with file builder
         }
         .modelContainer(sharedModelContainer)
     }
