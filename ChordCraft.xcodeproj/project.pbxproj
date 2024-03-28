@@ -16,7 +16,6 @@
 		AA0EF4662BB3E5570093867B /* ChordCraftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF4652BB3E5570093867B /* ChordCraftUITests.swift */; };
 		AA0EF4682BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF4672BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift */; };
 		D92D50062BB4B6B300DE0664 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D50052BB4B6B300DE0664 /* ListView.swift */; };
-		D92D500A2BB4CEEF00DE0664 /* ContentViewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D50092BB4CEEF00DE0664 /* ContentViewUI.swift */; };
 		D92D500C2BB4CF4B00DE0664 /* SimpleCompoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D500B2BB4CF4B00DE0664 /* SimpleCompoApp.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +50,6 @@
 		AA0EF4652BB3E5570093867B /* ChordCraftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordCraftUITests.swift; sourceTree = "<group>"; };
 		AA0EF4672BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordCraftUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D92D50052BB4B6B300DE0664 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
-		D92D50092BB4CEEF00DE0664 /* ContentViewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewUI.swift; sourceTree = "<group>"; };
 		D92D500B2BB4CF4B00DE0664 /* SimpleCompoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCompoApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,7 +116,6 @@
 			children = (
 				AA0EF4502BB3E5570093867B /* Preview Assets.xcassets */,
 				D92D50052BB4B6B300DE0664 /* ListView.swift */,
-				D92D50092BB4CEEF00DE0664 /* ContentViewUI.swift */,
 				D92D500B2BB4CF4B00DE0664 /* SimpleCompoApp.swift */,
 			);
 			path = "Preview Content";
@@ -272,7 +269,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D92D500C2BB4CF4B00DE0664 /* SimpleCompoApp.swift in Sources */,
-				D92D500A2BB4CEEF00DE0664 /* ContentViewUI.swift in Sources */,
 				AA0EF44A2BB3E5550093867B /* ContentView.swift in Sources */,
 				AA0EF44C2BB3E5550093867B /* Item.swift in Sources */,
 				D92D50062BB4B6B300DE0664 /* ListView.swift in Sources */,

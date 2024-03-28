@@ -1,6 +1,6 @@
 
 //
-//  Created by Austin Martin on 3/23/24.
+//  Created on 3/23/24.
 //
 
 import SwiftUI
@@ -10,45 +10,61 @@ struct Option: Hashable { // Defines a struct to represent an option with a titl
 }
 
 
-struct MainView: View {
-    @State private var textFieldInput: String = ""
-    @State private var buttonText = "create"
-    @State private var showPrompt = false
+struct SubsectionView: View {
+    let title: String
+    let items: [String]
 
     var body: some View {
-        VStack {
-            if showPrompt {   // Display a text field if showPrompt is true
-                TextField("Enter Project Name", text: $textFieldInput)
-                    .padding()
-            }
-            
-            Button(action: {    // Display a button to toggle the showPrompt
-                if !showPrompt {
-                    showPrompt = true
-                } else {       // Perform an action when the button is tapped
-                    let created = createFolder(folderName: self.textFieldInput)
-                    print("Button tapped")
-                    if(created) {
-                        self.buttonText = "folder was created"
-                        showPrompt = false
-                    } else {
-                        self.buttonText = "invalid, try again"
-                    }
-                }
-            }) {
-                if !showPrompt {        // Show different content based on the showPrompt state
-                    Image(systemName: "folder.fill.badge.plus")
-                } else {
-                    Text("Create")
+        VStack(alignment: .leading, spacing: 10) {
+            Text(title)
+                .font(.title)
+                .padding(.bottom, 5)
+
+            HStack {
+                ForEach(items, id: \.self) { (item: String) in
+                    Text(item)
+                        .padding(.horizontal, 8) // Add horizontal padding between items
+                        .background(Color.blue) // Add background color for better visibility
+                        .foregroundColor(.white) // Set text color to white
+                        .cornerRadius(8) // Add corner radius for rounded appearance
                 }
             }
+            .frame(maxWidth: .infinity) // Fill up all available horizontal space
         }
+        .padding()
+        .background(Color.gray.opacity(0.2))
+        .cornerRadius(10)
     }
 }
 
+
+struct MainView : View {
+    var body: some View {
+
+        VStack {
+            HStack {
+                SubsectionView(title: "Subsection 1", items: ["Item 1", "Item 2","item 3","item 4"])
+                Spacer()
+            }
+            .padding()
+            HStack {
+                SubsectionView(title: "Subsection 2", items: ["Item 3", "Item 4", "Item 5"])
+                Spacer()
+            }
+            .padding()
+            HStack {
+                SubsectionView(title: "Subsection 3", items: ["Item 6", "Item 7", "Item 8", "Item 9"])
+                Spacer()
+            }
+            .padding()
+        }
+        .padding()
+        Spacer()
+    }
+}
 struct ListView: View {
     let options: [Option]    // Options available in the list
-    @Binding var currentSelection: Int    // Binding to track the current selection
+    @State var currentSelection: Int    // Binding to track the current selection
     var body: some View {
         VStack {
             let current = options[currentSelection]     // Get the currently selected option
