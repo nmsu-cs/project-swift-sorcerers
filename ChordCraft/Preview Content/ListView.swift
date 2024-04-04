@@ -40,36 +40,50 @@ struct SubsectionView: View {
 
 struct MainView : View {
     var body: some View {
-
-        VStack {
-            HStack {
-                SubsectionView(title: "Subsection 1", items: ["Item 1", "Item 2","item 3","item 4"])
+        ScrollView {
+            ZStack{
+                Color.white.background()
+                VStack {
+                    Text("Welcome back!").font(.largeTitle).padding(.top, 20).foregroundColor(Color.black)
+                        .padding()
+                    HStack {
+                        Text("Projects").font(.title).padding(.leading).foregroundColor(Color.black)
+                        Spacer()
+                    }
+                    Divider().frame(height: 2).foregroundColor(Color.black)
+                    HStack {
+                        SubsectionView(title: "Subsection 1", items: ["Item 1", "Item 2","item 3","item 4"])
+                        Spacer()
+                    }
+                    .padding()
+                    HStack {
+                        SubsectionView(title: "Subsection 2", items: ["Item 3", "Item 4", "Item 5"])
+                        Spacer()
+                    }
+                    .padding()
+                    HStack {
+                        SubsectionView(title: "Subsection 3", items: ["Item 6", "Item 7", "Item 8", "Item 9"])
+                        Spacer()
+                    }
+                    .padding()
+                }
+                .padding()
                 Spacer()
             }
-            .padding()
-            HStack {
-                SubsectionView(title: "Subsection 2", items: ["Item 3", "Item 4", "Item 5"])
-                Spacer()
-            }
-            .padding()
-            HStack {
-                SubsectionView(title: "Subsection 3", items: ["Item 6", "Item 7", "Item 8", "Item 9"])
-                Spacer()
-            }
-            .padding()
         }
-        .padding()
-        Spacer()
     }
 }
+
 struct ListView: View {
     let options: [Option]    // Options available in the list
-    @State var currentSelection: Int    // Binding to track the current selection
+    @Binding var currentSelection: Int    // Binding to track the current selection
+    
     var body: some View {
         VStack {
+            Text("ChordCraft").font(.title).padding(.top, 20)
+            Divider()
             let current = options[currentSelection]     // Get the currently selected option
             ForEach(options, id: \.self) { option in    // Display each option in a row
-
                 HStack {
                     Spacer()
                     Text(option.title)
@@ -83,9 +97,10 @@ struct ListView: View {
                 }
                 .padding(8)
                 .onTapGesture {    // Handle tap gesture on an option
-                                    // Get the index of the tapped option
-                    if let tappedIndex = self.options.firstIndex(where: { $0 == option }) {
-                        self.currentSelection = tappedIndex    // Updates the currentSelection
+                    if currentSelection == 1 {
+                        currentSelection = 0
+                    } else  { 
+                        currentSelection = 1
                     }
                 
                 }
@@ -95,8 +110,18 @@ struct ListView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MainView()
+    }
+}
+
+struct ListView_Previews: PreviewProvider {
+    @State static var currentSelection = 0
+    static var previews: some View {
+        ListView(options: [
+            Option(title: "Projects", imageName: "folder.fill"),
+            Option(title: "Settings", imageName: "gearshape")
+        ], currentSelection: $currentSelection)
     }
 }

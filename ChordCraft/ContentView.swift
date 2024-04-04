@@ -11,7 +11,7 @@ struct ContentView: View {
     
     let options: [Option] = [ // Options available in the list
         .init(title: "Projects", imageName: "folder.fill"),
-        .init(title: "Settings", imageName: "gear")]
+        .init(title: "Settings", imageName: "gearshape")]
     
     
     let views: [Int: AnyView] = [     // Mapping of option index to corresponding view
@@ -19,14 +19,14 @@ struct ContentView: View {
             1: AnyView(Text("Testing Settings Tab"))
         ]
         
-        var body: some View {
-            NavigationView {        // Display the list of options
-                ListView(options: options, currentSelection: currentOption)
-                if let view = views[currentOption] {        // Display the view to the current selection
-                    view
+    var body: some View {
+        NavigationView {        // Display the list of options
+            ListView(options: options, currentSelection: $currentOption)
+            if let view = views[currentOption] {        // Display the view to the current selection
+                view
                 }
             }
-            .frame(minWidth: 600, minHeight: 400)
+        .frame(minWidth: 600, minHeight: 400)
     }
 }
 
@@ -34,3 +34,10 @@ struct ContentView: View {
     ContentView()
         .modelContainer(for: Item.self, inMemory: true)
 }
+
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}
+

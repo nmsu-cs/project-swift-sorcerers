@@ -15,8 +15,8 @@
 		AA0EF45C2BB3E5570093867B /* ChordCraftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF45B2BB3E5570093867B /* ChordCraftTests.swift */; };
 		AA0EF4662BB3E5570093867B /* ChordCraftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF4652BB3E5570093867B /* ChordCraftUITests.swift */; };
 		AA0EF4682BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF4672BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift */; };
-		D92D50062BB4B6B300DE0664 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D50052BB4B6B300DE0664 /* ListView.swift */; };
-		D92D500C2BB4CF4B00DE0664 /* SimpleCompoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D500B2BB4CF4B00DE0664 /* SimpleCompoApp.swift */; };
+		D9D5E25F2BBE641500B6C3E0 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D50052BB4B6B300DE0664 /* ListView.swift */; };
+		D9D5E2602BBE641800B6C3E0 /* SimpleCompoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D500B2BB4CF4B00DE0664 /* SimpleCompoApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -268,10 +268,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D92D500C2BB4CF4B00DE0664 /* SimpleCompoApp.swift in Sources */,
+				D9D5E25F2BBE641500B6C3E0 /* ListView.swift in Sources */,
 				AA0EF44A2BB3E5550093867B /* ContentView.swift in Sources */,
+				D9D5E2602BBE641800B6C3E0 /* SimpleCompoApp.swift in Sources */,
 				AA0EF44C2BB3E5550093867B /* Item.swift in Sources */,
-				D92D50062BB4B6B300DE0664 /* ListView.swift in Sources */,
 				AA0EF4482BB3E5550093867B /* ChordCraftApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
