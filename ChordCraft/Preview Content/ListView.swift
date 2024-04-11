@@ -39,15 +39,15 @@ struct MainView : View {
     var body: some View {
         ScrollView {
             ZStack{
-                Color.white.background()
+                Color.black.background()
                 VStack {
-                    Text("Welcome back!").font(.largeTitle).padding(.top, 20).foregroundColor(Color.black)
+                    Text("Welcome back!").font(.largeTitle).padding(.top, 20).foregroundColor(Color.white)
                         .padding()
                     HStack {
-                        Text("Projects").font(.title).padding(.leading).foregroundColor(Color.black)
+                        Text("Projects").font(.title).padding(.leading).foregroundColor(Color.white)
                         Spacer()
                     }
-                    Divider().frame(height: 2).foregroundColor(Color.black)
+                    Divider().frame(height: 2).foregroundColor(Color.white)
                     HStack {
                         SubsectionView(title: "Subsection 1", items: ["Item 1", "Item 2","item 3","item 4"])
                         Spacer()

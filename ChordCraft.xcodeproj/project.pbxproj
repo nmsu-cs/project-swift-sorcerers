@@ -17,7 +17,7 @@
 		AA0EF4682BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF4672BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift */; };
 		D96551852BC75D9700979DED /* StartUpPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96551842BC75D9700979DED /* StartUpPage.swift */; };
 		D9D5E25F2BBE641500B6C3E0 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D50052BB4B6B300DE0664 /* ListView.swift */; };
-		D9D5E2602BBE641800B6C3E0 /* SimpleCompoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D500B2BB4CF4B00DE0664 /* SimpleCompoApp.swift */; };
+		D9E9A43C2BC8354A00896BDF /* SimpleCompoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D500B2BB4CF4B00DE0664 /* SimpleCompoApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,7 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				AA0EF4462BB3E5550093867B /* ChordCraft */,
-				AA0EF45A2BB3E5570093867B /* ChordCraftTests */,
 				AA0EF4642BB3E5570093867B /* ChordCraftUITests */,
 				AA0EF4452BB3E5550093867B /* Products */,
 			);
@@ -118,8 +117,9 @@
 			children = (
 				AA0EF4502BB3E5570093867B /* Preview Assets.xcassets */,
 				D92D50052BB4B6B300DE0664 /* ListView.swift */,
-				D92D500B2BB4CF4B00DE0664 /* SimpleCompoApp.swift */,
 				D96551842BC75D9700979DED /* StartUpPage.swift */,
+				D92D500B2BB4CF4B00DE0664 /* SimpleCompoApp.swift */,
+				AA0EF45A2BB3E5570093867B /* ChordCraftTests */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -273,7 +273,7 @@
 			files = (
 				D9D5E25F2BBE641500B6C3E0 /* ListView.swift in Sources */,
 				AA0EF44A2BB3E5550093867B /* ContentView.swift in Sources */,
-				D9D5E2602BBE641800B6C3E0 /* SimpleCompoApp.swift in Sources */,
+				D9E9A43C2BC8354A00896BDF /* SimpleCompoApp.swift in Sources */,
 				D96551852BC75D9700979DED /* StartUpPage.swift in Sources */,
 				AA0EF44C2BB3E5550093867B /* Item.swift in Sources */,
 				AA0EF4482BB3E5550093867B /* ChordCraftApp.swift in Sources */,
