@@ -11,7 +11,6 @@ import SwiftData
 
 @Model
 class song {
-    
     var title: String
     var filePath: String
     var dateCreated: Date
@@ -21,7 +20,7 @@ class song {
     var starRating: Double
     var notes: String
     
-    init(title: String, filePath: String, dateCreated: String, tempo: Double, genre: String, key: String, starRating: Double, notes: String) {
+    init(title: String, filePath: String, dateCreated: Date, tempo: Double, genre: String, key: String, starRating: Double, notes: String) {
         self.title = title
         self.filePath = filePath
         self.dateCreated = dateCreated
@@ -41,7 +40,7 @@ class song {
         self.filePath = newFilePath
     }
     
-    func updateDateCreated(newDateCreated: String) {
+    func updateDateCreated(newDateCreated: Date) {
         self.dateCreated = newDateCreated
     }
     
@@ -64,6 +63,4 @@ class song {
     func updateNotes(newNotes: String) {
         self.notes = newNotes
     }
-    
 }
-
