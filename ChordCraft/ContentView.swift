@@ -15,12 +15,13 @@ struct ContentView: View {
     
     
     let views: [Int: AnyView] = [     // Mapping of option index to corresponding view
-            0: AnyView(MainView()),
+            0: AnyView(StartUpPage()),
             1: AnyView(Text("Testing Settings Tab"))
         ]
         
     var body: some View {
-        NavigationView {        // Display the list of options
+        NavigationView {   
+            // Display the list of options
             ListView(options: options, currentSelection: $currentOption)
             if let view = views[currentOption] {        // Display the view to the current selection
                 view
@@ -35,9 +36,4 @@ struct ContentView: View {
         .modelContainer(for: Item.self, inMemory: true)
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}
 

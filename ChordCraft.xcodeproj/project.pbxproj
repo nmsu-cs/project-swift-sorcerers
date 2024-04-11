@@ -15,6 +15,7 @@
 		AA0EF45C2BB3E5570093867B /* ChordCraftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF45B2BB3E5570093867B /* ChordCraftTests.swift */; };
 		AA0EF4662BB3E5570093867B /* ChordCraftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF4652BB3E5570093867B /* ChordCraftUITests.swift */; };
 		AA0EF4682BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF4672BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift */; };
+		D96551852BC75D9700979DED /* StartUpPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96551842BC75D9700979DED /* StartUpPage.swift */; };
 		D9D5E25F2BBE641500B6C3E0 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D50052BB4B6B300DE0664 /* ListView.swift */; };
 		D9D5E2602BBE641800B6C3E0 /* SimpleCompoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D500B2BB4CF4B00DE0664 /* SimpleCompoApp.swift */; };
 /* End PBXBuildFile section */
@@ -51,6 +52,7 @@
 		AA0EF4672BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordCraftUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D92D50052BB4B6B300DE0664 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		D92D500B2BB4CF4B00DE0664 /* SimpleCompoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCompoApp.swift; sourceTree = "<group>"; };
+		D96551842BC75D9700979DED /* StartUpPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				AA0EF4502BB3E5570093867B /* Preview Assets.xcassets */,
 				D92D50052BB4B6B300DE0664 /* ListView.swift */,
 				D92D500B2BB4CF4B00DE0664 /* SimpleCompoApp.swift */,
+				D96551842BC75D9700979DED /* StartUpPage.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				D9D5E25F2BBE641500B6C3E0 /* ListView.swift in Sources */,
 				AA0EF44A2BB3E5550093867B /* ContentView.swift in Sources */,
 				D9D5E2602BBE641800B6C3E0 /* SimpleCompoApp.swift in Sources */,
+				D96551852BC75D9700979DED /* StartUpPage.swift in Sources */,
 				AA0EF44C2BB3E5550093867B /* Item.swift in Sources */,
 				AA0EF4482BB3E5550093867B /* ChordCraftApp.swift in Sources */,
 			);

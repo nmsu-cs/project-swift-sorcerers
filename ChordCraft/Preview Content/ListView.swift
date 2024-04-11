@@ -1,7 +1,4 @@
 
-//
-//  Created on 3/23/24.
-//
 
 import SwiftUI
 struct Option: Hashable { // Defines a struct to represent an option with a title and an image name
@@ -80,16 +77,17 @@ struct ListView: View {
     
     var body: some View {
         VStack {
+            //..
             Text("ChordCraft").font(.title).padding(.top, 20)
             Divider()
-            let current = options[currentSelection]     // Get the currently selected option
-            ForEach(options, id: \.self) { option in    // Display each option in a row
+            ForEach(options.indices, id: \.self) { index in    // Display each option in a row
+                let option = options[index]     // Gets the currently selected option
                 HStack {
                     Spacer()
                     Text(option.title)
-                        .foregroundColor(current == option ? Color(.blue) : Color(.white))
+                        .foregroundColor(index == currentSelection ? Color(.blue) : Color(.white))
                     Spacer()
-                    Image(systemName: option.imageName)  // Display the option's image
+                    Image(systemName: option.imageName)  // Displays the option's image
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 15)
@@ -97,13 +95,8 @@ struct ListView: View {
                 }
                 .padding(8)
                 .onTapGesture {    // Handle tap gesture on an option
-                    if currentSelection == 1 {
-                        currentSelection = 0
-                    } else  { 
-                        currentSelection = 1
+                    currentSelection = index
                     }
-                
-                }
             }
             Spacer()
         }
