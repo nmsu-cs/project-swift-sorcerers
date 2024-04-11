@@ -13,8 +13,12 @@ struct StartUpPage: View {  // start main
     // content
     @State private var showProjects = false
     @State private var currentSelection = 0
+   
     
     var body: some View {  // start body
+       // ProjectView(showProjects: $showProjects)
+        // .frame(minWidth: 600, minHeight: 400)
+        
         NavigationView{ // start navigation view
             
                 if showProjects {
@@ -30,6 +34,7 @@ struct StartUpPage: View {  // start main
                 
             
         } // end naviagtion
+         
         .frame(minWidth: 600, minHeight: 400)
     } // end body
 } // end main
@@ -47,18 +52,45 @@ struct ProjectView: View {  // start struct
         ZStack { // start v stack
             Image("ChordCraft")
                 .resizable()
+                .scaledToFit()
+                .containerRelativeFrame(.horizontal) { size, axis in
+                    size * 0.7
+                }
+                .padding(.top, -150.0)
             
             VStack {
+                Text("Chord Craft").font(.largeTitle).fontWeight(.bold).padding(.top,165)
+                Text("Version 1.0.0").font(/*@START_MENU_TOKEN@*/.subheadline/*@END_MENU_TOKEN@*/).fontWeight(.medium)
+                    .foregroundStyle(.gray)
+                
                 Spacer()
-                Text("Chord Craft").font(.largeTitle).padding(.top, 230)
-                Spacer()
-                Button("Create Project +") { // start button
-
-                }  // end button
-                Button("Existing Project") {
+                
+                Button {
+                       
+                   } label: {
+                       Image(systemName: "plus.square")
+                       Text("Create New Project...")
+                           .padding(.leading, -98)
+                           .padding(.vertical, 8)
+                           .foregroundColor(.white)
+                           .frame(maxWidth: 250)
+                           .cornerRadius(8)
+                   }// end button
+                   .padding(.bottom, 4)
+                
+                
+                Button {
                     showProjects.toggle()
-                }
-                .padding(.bottom, 50)
+                   } label: {
+                       Image(systemName: "folder")
+                       Text("Open Existing Project...")
+                           .padding(.leading, -90)
+                           .padding(.vertical, 8)
+                           .foregroundColor(.white)
+                           .frame(maxWidth: 250)
+                           .cornerRadius(8)
+                   }// end button
+                .padding(.bottom, 70)
 
 
             }  // end vstack
