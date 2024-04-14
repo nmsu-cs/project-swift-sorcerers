@@ -35,13 +35,13 @@ struct StartUpPage: View {  // start main
             
         } // end naviagtion
          
-        .frame(minWidth: 600, minHeight: 400)
+       // .frame(minWidth: 600, minHeight: 400)
     } // end body
 } // end main
 
 struct SideView: View {  // start struct
     var body: some View {
-        Text("List")
+        Text("")
     }  // end body
 }  // end struct
 
@@ -50,57 +50,80 @@ struct ProjectView: View {  // start struct
     
     var body: some View {
         ZStack { // start v stack
-            Image("ChordCraft")
-                .resizable()
-                .scaledToFit()
-                .containerRelativeFrame(.horizontal) { size, axis in
-                    size * 0.7
-                }
-                .padding(.top, -150.0)
+             
             
-            VStack {
-                Text("Chord Craft").font(.largeTitle).fontWeight(.bold).padding(.top,165)
-                Text("Version 1.0.0").font(/*@START_MENU_TOKEN@*/.subheadline/*@END_MENU_TOKEN@*/).fontWeight(.medium)
-                    .foregroundStyle(.gray)
-                
-                Spacer()
-                
-                Button {
-                       
-                   } label: {
-                       Image(systemName: "plus.square")
-                       Text("Create New Project...")
-                           .padding(.leading, -98)
-                           .padding(.vertical, 8)
-                           .foregroundColor(.white)
-                           .frame(maxWidth: 250)
-                           .cornerRadius(8)
-                   }// end button
-                   .padding(.bottom, 4)
-                
-                
-                Button {
-                    showProjects.toggle()
-                   } label: {
-                       Image(systemName: "folder")
-                       Text("Open Existing Project...")
-                           .padding(.leading, -90)
-                           .padding(.vertical, 8)
-                           .foregroundColor(.white)
-                           .frame(maxWidth: 250)
-                           .cornerRadius(8)
-                   }// end button
+            HStack {
+                VStack {
+                    Spacer()
+                    Image("ChordCraft1")
+                        .resizable()
+                             .aspectRatio(contentMode: .fit)
+                             .frame(width: 250, height: 130, alignment: .centerLastTextBaseline)
+                             //.border(.blue)
+                             .padding(.top, 44)
+                  
+                    
+                    
+                    Text("Chord Craft")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                    
+                    Text("Version 1.0.0")
+                        .font(/*@START_MENU_TOKEN@*/.subheadline/*@END_MENU_TOKEN@*/)
+                        .fontWeight(.medium)
+                        .foregroundStyle(.gray)
+                    
+                    Spacer()
+                    
+                    Button {
+                           
+                       } label: {
+                           Image(systemName: "plus.square")
+                           Text("Create New Project...")
+                               .padding(.leading, -89)
+                               .padding(.vertical, 8)
+                               .frame(maxWidth: 250)
+                               .cornerRadius(8)
+                       }// end button
+                       .frame(minWidth: 280,maxWidth: 280)
+                       .padding(.bottom, 4)
+                    
+                    
+                    Button {
+                        showProjects.toggle()
+                       } label: {
+                           HStack {
+                               Image(systemName: "folder")
+                               Spacer()
+                               Text("Open Existing Project...")
+                                   .padding(.leading, -89)
+                                   .padding(.vertical, 8)
+                                   .frame(maxWidth: 250)
+                                   .cornerRadius(8)
+                                   //.border(.blue)
+                           }
+                          
+                               
+                       }// end of button
+                       .frame(minWidth: 280,maxWidth: 280)
+                       //.border(.blue)
+                    
+                } // end of v stack
                 .padding(.bottom, 70)
+                
+            } // end of hstack
+            .padding(.leading, 100)
+            .padding(.trailing, 100)
 
-
-            }  // end vstack
-
-        } // end of v stack
+        } // end of zstack
     }  // end body
+        
 }  // end struct
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         StartUpPage()
+            //.frame(width: 600, height: 500)
     }
+        
 }
