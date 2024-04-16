@@ -20,7 +20,7 @@ struct ContentView: View {
         ]
         
     var body: some View {
-        NavigationView {   
+        NavigationView {
             // Display the list of options
             ListView(options: options, currentSelection: $currentOption)
             if let view = views[currentOption] {        // Display the view to the current selection
