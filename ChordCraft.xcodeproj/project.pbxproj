@@ -15,6 +15,7 @@
 		AA0EF45C2BB3E5570093867B /* ChordCraftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF45B2BB3E5570093867B /* ChordCraftTests.swift */; };
 		AA0EF4662BB3E5570093867B /* ChordCraftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF4652BB3E5570093867B /* ChordCraftUITests.swift */; };
 		AA0EF4682BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF4672BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift */; };
+		AA5A53232BCEF8E40019EF3E /* pathFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A53222BCEF8E40019EF3E /* pathFinder.swift */; };
 		AAB7A0FE2BC791F9004D3D1E /* songModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB7A0FC2BC791F9004D3D1E /* songModel.swift */; };
 		D92D50062BB4B6B300DE0664 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D50052BB4B6B300DE0664 /* ListView.swift */; };
 		D92D500C2BB4CF4B00DE0664 /* SimpleCompoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D500B2BB4CF4B00DE0664 /* SimpleCompoApp.swift */; };
@@ -50,6 +51,7 @@
 		AA0EF4612BB3E5570093867B /* ChordCraftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChordCraftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA0EF4652BB3E5570093867B /* ChordCraftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordCraftUITests.swift; sourceTree = "<group>"; };
 		AA0EF4672BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordCraftUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AA5A53222BCEF8E40019EF3E /* pathFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pathFinder.swift; sourceTree = "<group>"; };
 		AAB7A0FC2BC791F9004D3D1E /* songModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = songModel.swift; sourceTree = "<group>"; };
 		D92D50052BB4B6B300DE0664 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		D92D500B2BB4CF4B00DE0664 /* SimpleCompoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCompoApp.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			children = (
 				AA0EF4472BB3E5550093867B /* ChordCraftApp.swift */,
 				AA0EF4492BB3E5550093867B /* ContentView.swift */,
+				AA5A53222BCEF8E40019EF3E /* pathFinder.swift */,
 				AA0EF44B2BB3E5550093867B /* Item.swift */,
 				AAB7A0FD2BC791F9004D3D1E /* model */,
 				AA0EF44D2BB3E5570093867B /* Assets.xcassets */,
@@ -283,6 +286,7 @@
 				D92D500C2BB4CF4B00DE0664 /* SimpleCompoApp.swift in Sources */,
 				AA0EF44A2BB3E5550093867B /* ContentView.swift in Sources */,
 				AA0EF44C2BB3E5550093867B /* Item.swift in Sources */,
+				AA5A53232BCEF8E40019EF3E /* pathFinder.swift in Sources */,
 				D92D50062BB4B6B300DE0664 /* ListView.swift in Sources */,
 				AA0EF4482BB3E5550093867B /* ChordCraftApp.swift in Sources */,
 			);
