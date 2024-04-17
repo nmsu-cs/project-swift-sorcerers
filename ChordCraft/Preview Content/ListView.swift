@@ -6,13 +6,16 @@ struct Option: Hashable { // Defines a struct to represent an option with a titl
     let imageName: String
 }
 
+
 // information in row
 struct SubsectionView: View {
     let title: String
     let items: [String]
+    @State private var isExpanded: Bool = true
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
+            
             // row title
             Text(title)
                 .font(.title)
@@ -20,16 +23,17 @@ struct SubsectionView: View {
                 .padding(.bottom, 5)
 
             // songs
-            HStack {
-                ForEach(items, id: \.self) { (item: String) in
-                    Text(item)
-                        .padding(.horizontal, 8) // Add horizontal padding between items
-                        .background(Color.blue) // Add background color for better visibility
-                        .foregroundColor(.white) // Set text color to white
-                        .cornerRadius(8) // Add corner radius for rounded appearance
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 20) {
+                    ForEach(items, id: \.self) { _ in
+                        NavigationLink(destination: Text("Folder")) {                                       HStack {
+                            Image(systemName: "folder.fill").foregroundColor(.white).padding()
+                            }
+                        }
+                    }
                 }
             }
-            .frame(maxWidth: .infinity) // Fill up all available horizontal space
+//            .frame(maxWidth: .infinity) // Fill up all available horizontal space
         }
         .padding()
         .cornerRadius(10)
@@ -39,6 +43,10 @@ struct SubsectionView: View {
 
 struct MainView : View {
     @State private var headerMessage: String = ""
+    @State private var isCompletedExpanded = true
+    @State private var isMasteringExpanded = true
+    @State private var isMixingExpanded = true
+
     
     var body: some View {
         ScrollView {
@@ -85,6 +93,13 @@ struct MainView : View {
                         HStack {
                             SubsectionView(title: "Completed", items: ["Item 1", "Item 2","item 3","item 4"])
                             Spacer()
+                            Button(action: {
+                                withAnimation {
+                                    isCompletedExpanded.toggle()
+                                }
+                            }) {
+                                Image(systemName: isCompletedExpanded ? "chevron.up" : "chevron.down").foregroundColor(.white).padding()
+                            }
                         }
                         .padding()
                     }
@@ -98,7 +113,9 @@ struct MainView : View {
                         HStack {
                             SubsectionView(title: "Mastering", items: ["Item 3", "Item 4", "Item 5"])
                             Spacer()
+                            
                         }
+                        
                         .padding()
                     }
                     
