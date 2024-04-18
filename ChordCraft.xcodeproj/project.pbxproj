@@ -17,7 +17,6 @@
 		AA0EF4682BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF4672BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift */; };
 		AA1D2F772BD08792002D8F34 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1D2F762BD08792002D8F34 /* Project.swift */; };
 		AAB7A0FE2BC791F9004D3D1E /* songModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB7A0FC2BC791F9004D3D1E /* songModel.swift */; };
-		D92D50062BB4B6B300DE0664 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D50052BB4B6B300DE0664 /* ListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +51,6 @@
 		AA0EF4672BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordCraftUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AA1D2F762BD08792002D8F34 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Project.swift; path = ChordCraft/Project.swift; sourceTree = SOURCE_ROOT; };
 		AAB7A0FC2BC791F9004D3D1E /* songModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = songModel.swift; sourceTree = "<group>"; };
-		D92D50052BB4B6B300DE0664 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				AA0EF4502BB3E5570093867B /* Preview Assets.xcassets */,
-				D92D50052BB4B6B300DE0664 /* ListView.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -282,7 +279,6 @@
 				AAB7A0FE2BC791F9004D3D1E /* songModel.swift in Sources */,
 				AA0EF44A2BB3E5550093867B /* AddsongForm.swift in Sources */,
 				AA0EF44C2BB3E5550093867B /* Item.swift in Sources */,
-				D92D50062BB4B6B300DE0664 /* ListView.swift in Sources */,
 				AA0EF4482BB3E5550093867B /* ChordCraftApp.swift in Sources */,
 				AA1D2F772BD08792002D8F34 /* Project.swift in Sources */,
 			);
