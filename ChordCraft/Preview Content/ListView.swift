@@ -104,6 +104,7 @@ struct MainView : View {
                         .onAppear(perform: updateHeaderMessage) // calls function
                     
                        
+                    
                         Spacer()
                         Spacer()
                     
