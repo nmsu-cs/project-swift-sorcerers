@@ -4,11 +4,11 @@
 //
 
 import SwiftUI
+
 struct Option: Hashable { // Defines a struct to represent an option with a title and an image name
     let title: String
     let imageName: String
 }
-
 
 struct SubsectionView: View {
     let title: String
@@ -37,13 +37,11 @@ struct SubsectionView: View {
     }
 }
 
-
-struct MainView : View {
+struct MainView: View {
     var body: some View {
-
         VStack {
             HStack {
-                SubsectionView(title: "Subsection 1", items: ["Item 1", "Item 2","item 3","item 4"])
+                SubsectionView(title: "Subsection 1", items: ["Item 1", "Item 2", "item 3", "item 4"])
                 Spacer()
             }
             .padding()
@@ -62,32 +60,32 @@ struct MainView : View {
         Spacer()
     }
 }
+
 struct ListView: View {
-    let options: [Option]    // Options available in the list
-    @State var currentSelection: Int    // Binding to track the current selection
+    let options: [Option] // Options available in the list
+    @State var currentSelection: Int // Binding to track the current selection
     var body: some View {
         VStack {
-            let current = options[currentSelection]     // Get the currently selected option
-            ForEach(options, id: \.self) { option in    // Display each option in a row
+            let current = options[currentSelection] // Get the currently selected option
+            ForEach(options, id: \.self) { option in // Display each option in a row
 
                 HStack {
                     Spacer()
                     Text(option.title)
                         .foregroundColor(current == option ? Color(.blue) : Color(.white))
                     Spacer()
-                    Image(systemName: option.imageName)  // Display the option's image
+                    Image(systemName: option.imageName) // Display the option's image
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 15)
                     Spacer()
                 }
                 .padding(8)
-                .onTapGesture {    // Handle tap gesture on an option
-                                    // Get the index of the tapped option
+                .onTapGesture { // Handle tap gesture on an option
+                    // Get the index of the tapped option
                     if let tappedIndex = self.options.firstIndex(where: { $0 == option }) {
-                        self.currentSelection = tappedIndex    // Updates the currentSelection
+                        self.currentSelection = tappedIndex // Updates the currentSelection
                     }
-                
                 }
             }
             Spacer()
@@ -97,6 +95,6 @@ struct ListView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        AddsongForm()
     }
 }

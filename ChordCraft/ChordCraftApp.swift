@@ -4,15 +4,15 @@
 //
 //
 
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 @main
 struct ChordCraftApp: App {
-    // inital model setup for database 
+    // inital model setup for database
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            song.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
 
@@ -25,8 +25,8 @@ struct ChordCraftApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()     // uncomment to show text box with file builder
-            //ContentViewUI()   // uncomment to show basic UI with folder builder
+            AddsongForm()
+            // fileview()
         }
         .modelContainer(sharedModelContainer)
     }
