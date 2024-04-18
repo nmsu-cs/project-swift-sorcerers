@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AA0EF4482BB3E5550093867B /* ChordCraftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF4472BB3E5550093867B /* ChordCraftApp.swift */; };
-		AA0EF44A2BB3E5550093867B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF4492BB3E5550093867B /* ContentView.swift */; };
+		AA0EF44A2BB3E5550093867B /* AddsongForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF4492BB3E5550093867B /* AddsongForm.swift */; };
 		AA0EF44C2BB3E5550093867B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF44B2BB3E5550093867B /* Item.swift */; };
 		AA0EF44E2BB3E5570093867B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA0EF44D2BB3E5570093867B /* Assets.xcassets */; };
 		AA0EF4512BB3E5570093867B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA0EF4502BB3E5570093867B /* Preview Assets.xcassets */; };
@@ -16,10 +16,8 @@
 		AA0EF4662BB3E5570093867B /* ChordCraftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF4652BB3E5570093867B /* ChordCraftUITests.swift */; };
 		AA0EF4682BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF4672BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift */; };
 		AA1D2F772BD08792002D8F34 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1D2F762BD08792002D8F34 /* Project.swift */; };
-		AA5A53232BCEF8E40019EF3E /* pathFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A53222BCEF8E40019EF3E /* pathFinder.swift */; };
 		AAB7A0FE2BC791F9004D3D1E /* songModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB7A0FC2BC791F9004D3D1E /* songModel.swift */; };
 		D92D50062BB4B6B300DE0664 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D50052BB4B6B300DE0664 /* ListView.swift */; };
-		D92D500C2BB4CF4B00DE0664 /* SimpleCompoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92D500B2BB4CF4B00DE0664 /* SimpleCompoApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +40,7 @@
 /* Begin PBXFileReference section */
 		AA0EF4442BB3E5550093867B /* ChordCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChordCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA0EF4472BB3E5550093867B /* ChordCraftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordCraftApp.swift; sourceTree = "<group>"; };
-		AA0EF4492BB3E5550093867B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AA0EF4492BB3E5550093867B /* AddsongForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddsongForm.swift; sourceTree = "<group>"; };
 		AA0EF44B2BB3E5550093867B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		AA0EF44D2BB3E5570093867B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA0EF4502BB3E5570093867B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -53,10 +51,8 @@
 		AA0EF4652BB3E5570093867B /* ChordCraftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordCraftUITests.swift; sourceTree = "<group>"; };
 		AA0EF4672BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordCraftUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AA1D2F762BD08792002D8F34 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Project.swift; path = ChordCraft/Project.swift; sourceTree = SOURCE_ROOT; };
-		AA5A53222BCEF8E40019EF3E /* pathFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pathFinder.swift; sourceTree = "<group>"; };
 		AAB7A0FC2BC791F9004D3D1E /* songModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = songModel.swift; sourceTree = "<group>"; };
 		D92D50052BB4B6B300DE0664 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
-		D92D500B2BB4CF4B00DE0664 /* SimpleCompoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCompoApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,8 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				AA0EF4472BB3E5550093867B /* ChordCraftApp.swift */,
-				AA0EF4492BB3E5550093867B /* ContentView.swift */,
-				AA5A53222BCEF8E40019EF3E /* pathFinder.swift */,
+				AA0EF4492BB3E5550093867B /* AddsongForm.swift */,
 				AA0EF44B2BB3E5550093867B /* Item.swift */,
 				AAB7A0FD2BC791F9004D3D1E /* model */,
 				AA0EF44D2BB3E5570093867B /* Assets.xcassets */,
@@ -124,7 +119,6 @@
 			children = (
 				AA0EF4502BB3E5570093867B /* Preview Assets.xcassets */,
 				D92D50052BB4B6B300DE0664 /* ListView.swift */,
-				D92D500B2BB4CF4B00DE0664 /* SimpleCompoApp.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -286,10 +280,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAB7A0FE2BC791F9004D3D1E /* songModel.swift in Sources */,
-				D92D500C2BB4CF4B00DE0664 /* SimpleCompoApp.swift in Sources */,
-				AA0EF44A2BB3E5550093867B /* ContentView.swift in Sources */,
+				AA0EF44A2BB3E5550093867B /* AddsongForm.swift in Sources */,
 				AA0EF44C2BB3E5550093867B /* Item.swift in Sources */,
-				AA5A53232BCEF8E40019EF3E /* pathFinder.swift in Sources */,
 				D92D50062BB4B6B300DE0664 /* ListView.swift in Sources */,
 				AA0EF4482BB3E5550093867B /* ChordCraftApp.swift in Sources */,
 				AA1D2F772BD08792002D8F34 /* Project.swift in Sources */,

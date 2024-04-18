@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  AddsongForm.swift
 //  ChordCraft
 //
 //
@@ -7,7 +7,7 @@ import Cocoa
 import SwiftData
 import SwiftUI
 
-struct ContentView: View {
+struct AddsongForm: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [song]
 
@@ -119,6 +119,6 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    AddsongForm()
         .modelContainer(for: Item.self, inMemory: true)
 }

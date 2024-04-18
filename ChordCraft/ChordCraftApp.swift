@@ -25,7 +25,7 @@ struct ChordCraftApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AddsongForm()
             // fileview()
         }
         .modelContainer(sharedModelContainer)
