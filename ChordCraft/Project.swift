@@ -15,10 +15,10 @@ class Project {
     // duration?
     var projectName: String
     var dateCreated: String
-    //var songs = Song(backingData: <#any BackingData<Song>#>)
+    //var songs = Song(backingData: any BackingData<Song>)
     //var songs = [Song]()
     //var songs: [Song] = [Song]()
-    var songs: [Song]
+    var songs: [song]
     
     init(projectName: String, dateCreated: String) {
         self.projectName = projectName
@@ -34,7 +34,7 @@ class Project {
         self.dateCreated = dateCreated
     }
     
-    func addSongs(song: Song) -> Void {
+    func addSongs(song: song) -> Void {
         songs.append(song)
     }
     
