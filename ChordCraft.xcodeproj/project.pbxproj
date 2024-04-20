@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2454B7C72BD455E000CC449A /* songView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2454B7C62BD455E000CC449A /* songView2.swift */; };
 		AA0EF4482BB3E5550093867B /* ChordCraftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF4472BB3E5550093867B /* ChordCraftApp.swift */; };
 		AA0EF44A2BB3E5550093867B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF4492BB3E5550093867B /* ContentView.swift */; };
 		AA0EF44C2BB3E5550093867B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF44B2BB3E5550093867B /* Item.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2454B7C62BD455E000CC449A /* songView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = songView2.swift; path = "ChordCraft/Preview Content/songView2.swift"; sourceTree = SOURCE_ROOT; };
 		AA0EF4442BB3E5550093867B /* ChordCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChordCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA0EF4472BB3E5550093867B /* ChordCraftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordCraftApp.swift; sourceTree = "<group>"; };
 		AA0EF4492BB3E5550093867B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				D92D50052BB4B6B300DE0664 /* ListView.swift */,
 				D96551842BC75D9700979DED /* StartUpPage.swift */,
 				D92D500B2BB4CF4B00DE0664 /* SimpleCompoApp.swift */,
+				2454B7C62BD455E000CC449A /* songView2.swift */,
 				AA0EF45A2BB3E5570093867B /* ChordCraftTests */,
 			);
 			path = "Preview Content";
@@ -276,6 +279,7 @@
 				D9E9A43C2BC8354A00896BDF /* SimpleCompoApp.swift in Sources */,
 				D96551852BC75D9700979DED /* StartUpPage.swift in Sources */,
 				AA0EF44C2BB3E5550093867B /* Item.swift in Sources */,
+				2454B7C72BD455E000CC449A /* songView2.swift in Sources */,
 				AA0EF4482BB3E5550093867B /* ChordCraftApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
