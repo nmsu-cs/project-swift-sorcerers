@@ -16,6 +16,8 @@
 		AA0EF4662BB3E5570093867B /* ChordCraftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF4652BB3E5570093867B /* ChordCraftUITests.swift */; };
 		AA0EF4682BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF4672BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift */; };
 		AA1D2F772BD08792002D8F34 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1D2F762BD08792002D8F34 /* Project.swift */; };
+		AA9ADC8F2BD42C5900A99E28 /* AudioPlayerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9ADC8E2BD42C5900A99E28 /* AudioPlayerButton.swift */; };
+		AA9ADC912BD42DA200A99E28 /* 8-bit-kit-beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = AA9ADC902BD42DA200A99E28 /* 8-bit-kit-beep.wav */; };
 		AAB7A0FE2BC791F9004D3D1E /* songModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB7A0FC2BC791F9004D3D1E /* songModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +52,8 @@
 		AA0EF4652BB3E5570093867B /* ChordCraftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordCraftUITests.swift; sourceTree = "<group>"; };
 		AA0EF4672BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordCraftUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AA1D2F762BD08792002D8F34 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Project.swift; path = ChordCraft/Project.swift; sourceTree = SOURCE_ROOT; };
+		AA9ADC8E2BD42C5900A99E28 /* AudioPlayerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerButton.swift; sourceTree = "<group>"; };
+		AA9ADC902BD42DA200A99E28 /* 8-bit-kit-beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "8-bit-kit-beep.wav"; path = "../../../cs382/Pong/8-bit-kit-beep.wav"; sourceTree = "<group>"; };
 		AAB7A0FC2BC791F9004D3D1E /* songModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = songModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,7 +107,9 @@
 			children = (
 				AA0EF4472BB3E5550093867B /* ChordCraftApp.swift */,
 				AA0EF4492BB3E5550093867B /* AddsongForm.swift */,
+				AA9ADC902BD42DA200A99E28 /* 8-bit-kit-beep.wav */,
 				AA0EF44B2BB3E5550093867B /* Item.swift */,
+				AA9ADC8E2BD42C5900A99E28 /* AudioPlayerButton.swift */,
 				AAB7A0FD2BC791F9004D3D1E /* model */,
 				AA0EF44D2BB3E5570093867B /* Assets.xcassets */,
 				AA0EF4522BB3E5570093867B /* ChordCraft.entitlements */,
@@ -250,6 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA9ADC912BD42DA200A99E28 /* 8-bit-kit-beep.wav in Resources */,
 				AA0EF4512BB3E5570093867B /* Preview Assets.xcassets in Resources */,
 				AA0EF44E2BB3E5570093867B /* Assets.xcassets in Resources */,
 			);
@@ -279,6 +286,7 @@
 				AAB7A0FE2BC791F9004D3D1E /* songModel.swift in Sources */,
 				AA0EF44A2BB3E5550093867B /* AddsongForm.swift in Sources */,
 				AA0EF44C2BB3E5550093867B /* Item.swift in Sources */,
+				AA9ADC8F2BD42C5900A99E28 /* AudioPlayerButton.swift in Sources */,
 				AA0EF4482BB3E5550093867B /* ChordCraftApp.swift in Sources */,
 				AA1D2F772BD08792002D8F34 /* Project.swift in Sources */,
 			);
