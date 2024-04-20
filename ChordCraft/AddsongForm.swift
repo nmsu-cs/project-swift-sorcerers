@@ -8,6 +8,7 @@ import SwiftData
 import SwiftUI
 
 struct AddsongForm: View {
+    @Binding var showingAddSongForm: Bool
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [song]
 
@@ -28,7 +29,19 @@ struct AddsongForm: View {
 
     var body: some View {
         VStack(spacing: 20) {
-            Text("New Song attributes")
+            HStack {
+                Button(action: {
+                    // Define the action you want the button to perform here
+                    print("Button was tapped")
+                    self.showingAddSongForm = false
+                }) {
+                    Image(systemName: "xmark.circle.fill")
+                        .font(.title) // Optional: Adjust the size of the image
+                        .foregroundColor(.gray) // Optional: Change the color of the image
+                }
+                Spacer()
+            }
+            Text("New Song")
                 .font(.title)
 
             TextField("Song Name", text: $songName)
@@ -134,7 +147,13 @@ struct AddsongForm: View {
     } // end of function open file
 }
 
-#Preview {
-    AddsongForm()
-        .modelContainer(for: Item.self, inMemory: true)
+    
+
+struct AddsongForm_Previews: PreviewProvider {
+    static var previews: some View {
+        AddsongForm(showingAddSongForm: .constant(true))
+            //.modelContainer(for: Item.self, inMemory: true)
+            // Provide any required environment objects or settings here
+    }
 }
+
