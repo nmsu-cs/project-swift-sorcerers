@@ -19,6 +19,7 @@
 		AA6D79DB2BD4358500F521DE /* StartUpPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6D79DA2BD4358500F521DE /* StartUpPage.swift */; };
 		AA6D79E02BD435B800F521DE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA6D79DE2BD435B800F521DE /* Preview Assets.xcassets */; };
 		AA6D79E22BD4360700F521DE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6D79E12BD4360700F521DE /* ContentView.swift */; };
+		AA6D79E42BD43F7C00F521DE /* AddProjectFrom.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6D79E32BD43F7C00F521DE /* AddProjectFrom.swift */; };
 		AA9ADC8F2BD42C5900A99E28 /* AudioPlayerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9ADC8E2BD42C5900A99E28 /* AudioPlayerButton.swift */; };
 		AAB7A0FE2BC791F9004D3D1E /* songModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB7A0FC2BC791F9004D3D1E /* songModel.swift */; };
 /* End PBXBuildFile section */
@@ -57,6 +58,7 @@
 		AA6D79DA2BD4358500F521DE /* StartUpPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartUpPage.swift; sourceTree = "<group>"; };
 		AA6D79DE2BD435B800F521DE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AA6D79E12BD4360700F521DE /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AA6D79E32BD43F7C00F521DE /* AddProjectFrom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectFrom.swift; sourceTree = "<group>"; };
 		AA9ADC8E2BD42C5900A99E28 /* AudioPlayerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerButton.swift; sourceTree = "<group>"; };
 		AAB7A0FC2BC791F9004D3D1E /* songModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = songModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +112,7 @@
 			children = (
 				AA0EF4472BB3E5550093867B /* ChordCraftApp.swift */,
 				AA0EF4492BB3E5550093867B /* AddsongForm.swift */,
+				AA6D79E32BD43F7C00F521DE /* AddProjectFrom.swift */,
 				AA0EF44B2BB3E5550093867B /* Item.swift */,
 				AA9ADC8E2BD42C5900A99E28 /* AudioPlayerButton.swift */,
 				AA6D79E12BD4360700F521DE /* ContentView.swift */,
@@ -288,6 +291,7 @@
 				AA6D79DB2BD4358500F521DE /* StartUpPage.swift in Sources */,
 				AA6D79E22BD4360700F521DE /* ContentView.swift in Sources */,
 				AA9ADC8F2BD42C5900A99E28 /* AudioPlayerButton.swift in Sources */,
+				AA6D79E42BD43F7C00F521DE /* AddProjectFrom.swift in Sources */,
 				AA0EF4482BB3E5550093867B /* ChordCraftApp.swift in Sources */,
 				AA1D2F772BD08792002D8F34 /* Project.swift in Sources */,
 			);

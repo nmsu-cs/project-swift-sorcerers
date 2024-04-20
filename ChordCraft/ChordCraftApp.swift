@@ -12,7 +12,7 @@ struct ChordCraftApp: App {
     // inital model setup for database
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            song.self,
+            song.self, Project.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
 
@@ -26,8 +26,8 @@ struct ChordCraftApp: App {
     var body: some Scene {
         WindowGroup {
            // AddsongForm()
-           ContentView()
-
+        //   ContentView()
+        AddProjectForm()
         }
         .windowStyle(HiddenTitleBarWindowStyle()) // hides the title bar
         .modelContainer(sharedModelContainer)
