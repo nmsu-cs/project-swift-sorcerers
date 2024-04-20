@@ -19,13 +19,16 @@ struct AddsongForm: View {
     @State var songtempo: String = ""
     @State var startrate: String = ""
     @State var notesInput: String = ""
+    @State var stagein: String = ""
 
     // var for file path
     @State private var selectedFilePath: String?
+    
+    let stageOptions = ["Completed", "Mastering", "Mixing", "Ideas"]
 
     var body: some View {
         VStack(spacing: 20) {
-            Text("ChordCraft V0.02")
+            Text("New Song attributes")
                 .font(.title)
 
             TextField("Song Name", text: $songName)
@@ -45,6 +48,17 @@ struct AddsongForm: View {
 
             TextField("Song Notes", text: $notesInput)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
+            // Dropdown menu for stage selection
+            // Segmented control for stage selection
+            Picker(selection: $stagein, label: Text("Stage of Production")) {
+                ForEach(stageOptions, id: \.self) { option in
+                    Text(option)
+                }
+            }
+            .pickerStyle(SegmentedPickerStyle()) // Apply segmented control style
+
+           
+            // end of selector
             Button(action: {
                 openFileSelectionDialog()
             }) {
@@ -81,6 +95,8 @@ struct AddsongForm: View {
                     Text("key: \(item.key)")
                     Text("notes: \(item.notes)")
                     Text("Path to MP3 file: \(item.filePath)")
+                    Text("Stage of production: \(item.stage)")
+
                         .foregroundColor(.gray)
                 }
             }
@@ -92,7 +108,7 @@ struct AddsongForm: View {
     private func addItem() -> Bool {
         withAnimation {
             if let tempoin = Double(songtempo), let rating = Double(startrate) {
-                let newItem = song(title: songName, filePath: selectedFilePath!, tempo: tempoin, genre: songG, key: songkey, starRating: rating, notes: notesInput)
+                let newItem = song(title: songName, filePath: selectedFilePath!, tempo: tempoin, genre: songG, key: songkey, starRating: rating, notes: notesInput, sta:  stagein)
                 modelContext.insert(newItem)
                 return true
             } else {

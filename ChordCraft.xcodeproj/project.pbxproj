@@ -12,7 +12,6 @@
 		AA0EF44C2BB3E5550093867B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF44B2BB3E5550093867B /* Item.swift */; };
 		AA0EF44E2BB3E5570093867B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA0EF44D2BB3E5570093867B /* Assets.xcassets */; };
 		AA0EF4512BB3E5570093867B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA0EF4502BB3E5570093867B /* Preview Assets.xcassets */; };
-		AA0EF45C2BB3E5570093867B /* ChordCraftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF45B2BB3E5570093867B /* ChordCraftTests.swift */; };
 		AA0EF4662BB3E5570093867B /* ChordCraftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF4652BB3E5570093867B /* ChordCraftUITests.swift */; };
 		AA0EF4682BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF4672BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift */; };
 		AA1D2F772BD08792002D8F34 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1D2F762BD08792002D8F34 /* Project.swift */; };
@@ -21,7 +20,6 @@
 		AA6D79E02BD435B800F521DE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA6D79DE2BD435B800F521DE /* Preview Assets.xcassets */; };
 		AA6D79E22BD4360700F521DE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6D79E12BD4360700F521DE /* ContentView.swift */; };
 		AA9ADC8F2BD42C5900A99E28 /* AudioPlayerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9ADC8E2BD42C5900A99E28 /* AudioPlayerButton.swift */; };
-		AA9ADC912BD42DA200A99E28 /* 8-bit-kit-beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = AA9ADC902BD42DA200A99E28 /* 8-bit-kit-beep.wav */; };
 		AAB7A0FE2BC791F9004D3D1E /* songModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB7A0FC2BC791F9004D3D1E /* songModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +49,6 @@
 		AA0EF4502BB3E5570093867B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AA0EF4522BB3E5570093867B /* ChordCraft.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChordCraft.entitlements; sourceTree = "<group>"; };
 		AA0EF4572BB3E5570093867B /* ChordCraftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChordCraftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA0EF45B2BB3E5570093867B /* ChordCraftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordCraftTests.swift; sourceTree = "<group>"; };
 		AA0EF4612BB3E5570093867B /* ChordCraftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChordCraftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA0EF4652BB3E5570093867B /* ChordCraftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordCraftUITests.swift; sourceTree = "<group>"; };
 		AA0EF4672BB3E5570093867B /* ChordCraftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordCraftUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -61,7 +58,6 @@
 		AA6D79DE2BD435B800F521DE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AA6D79E12BD4360700F521DE /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AA9ADC8E2BD42C5900A99E28 /* AudioPlayerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerButton.swift; sourceTree = "<group>"; };
-		AA9ADC902BD42DA200A99E28 /* 8-bit-kit-beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "8-bit-kit-beep.wav"; path = "../../../cs382/Pong/8-bit-kit-beep.wav"; sourceTree = "<group>"; };
 		AAB7A0FC2BC791F9004D3D1E /* songModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = songModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,7 +90,6 @@
 			isa = PBXGroup;
 			children = (
 				AA0EF4462BB3E5550093867B /* ChordCraft */,
-				AA0EF45A2BB3E5570093867B /* ChordCraftTests */,
 				AA0EF4642BB3E5570093867B /* ChordCraftUITests */,
 				AA0EF4452BB3E5550093867B /* Products */,
 			);
@@ -115,7 +110,6 @@
 			children = (
 				AA0EF4472BB3E5550093867B /* ChordCraftApp.swift */,
 				AA0EF4492BB3E5550093867B /* AddsongForm.swift */,
-				AA9ADC902BD42DA200A99E28 /* 8-bit-kit-beep.wav */,
 				AA0EF44B2BB3E5550093867B /* Item.swift */,
 				AA9ADC8E2BD42C5900A99E28 /* AudioPlayerButton.swift */,
 				AA6D79E12BD4360700F521DE /* ContentView.swift */,
@@ -136,14 +130,6 @@
 				AA0EF4502BB3E5570093867B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		AA0EF45A2BB3E5570093867B /* ChordCraftTests */ = {
-			isa = PBXGroup;
-			children = (
-				AA0EF45B2BB3E5570093867B /* ChordCraftTests.swift */,
-			);
-			path = ChordCraftTests;
 			sourceTree = "<group>";
 		};
 		AA0EF4642BB3E5570093867B /* ChordCraftUITests */ = {
@@ -269,7 +255,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA6D79E02BD435B800F521DE /* Preview Assets.xcassets in Resources */,
-				AA9ADC912BD42DA200A99E28 /* 8-bit-kit-beep.wav in Resources */,
 				AA0EF4512BB3E5570093867B /* Preview Assets.xcassets in Resources */,
 				AA0EF44E2BB3E5570093867B /* Assets.xcassets in Resources */,
 			);
@@ -312,7 +297,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA0EF45C2BB3E5570093867B /* ChordCraftTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

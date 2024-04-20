@@ -19,8 +19,9 @@ class song {
     var key: String
     var starRating: Double
     var notes: String
+    var stage: String
     
-    init(title: String, filePath: String, tempo: Double, genre: String, key: String, starRating: Double, notes: String) {
+    init(title: String, filePath: String, tempo: Double, genre: String, key: String, starRating: Double, notes: String, sta:String) {
         self.title = title
         self.filePath = filePath
         // get the date of the system when init is called and set that to the date created of the song
@@ -35,6 +36,7 @@ class song {
         self.key = key
         self.starRating = starRating
         self.notes = notes
+        self.stage = sta
     }
     
     // update functions
