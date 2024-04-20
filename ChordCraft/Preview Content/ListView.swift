@@ -1,6 +1,8 @@
 
 
 import SwiftUI
+
+
 struct Option: Hashable { // Defines a struct to represent an option with a title and an image name
     let title: String
     let imageName: String
@@ -31,9 +33,9 @@ struct addButton: View {
 
 // information in row
 struct SubsectionView: View {
+
     let title: String
-    let items: [String]
-    
+    let items: [String]    
     var body: some View {
         VStack(alignment: .leading) {
             // row title
@@ -54,41 +56,31 @@ struct SubsectionView: View {
             // songs
            
             ScrollView(.horizontal, showsIndicators: false) {
-                            HStack(spacing: 20) {
-                                ForEach(items, id: \.self) { _ in
-                                    NavigationLink(destination: Text("Folder")) {
-                                        VStack {
-                                            
-                                            HStack {
-                                            Image(systemName: "folder.fill").foregroundColor(.white).padding()
-                                            }
-                                        }
-                                    }
+                HStack(spacing: 20) {
+                    ForEach(items, id: \.self) { _ in
+                        NavigationLink(destination: Text("Folder")) {
+                            VStack {
+                                HStack {
+                                    Image(systemName: "folder.fill").foregroundColor(.white).padding()
                                 }
                             }
                         }
-            
+                    }
+                }
+            }
         }
         .frame(minWidth: 500, maxWidth: 500, minHeight: 80, idealHeight: 80, maxHeight: 80)
         // .border(.orange)
         .padding()
         .cornerRadius(10)
-        
-
+        }
     }
     
-}
+
 
 
 struct MainView : View {
     @State private var headerMessage: String = ""
-    @State private var isCompletedExpanded = true
-    @State private var isMasteringExpanded = true
-    @State private var isMixingExpanded = true
-    
-
-
-    
     var body: some View {
         ScrollView {
             ZStack{
@@ -102,28 +94,19 @@ struct MainView : View {
                         //.border(.blue)
                         .padding(.leading)
                         .onAppear(perform: updateHeaderMessage) // calls function
-                    
-                       
-                    
                         Spacer()
                         Spacer()
-                    
-                    HStack {
-                                         // Project title
-                                         Text("Midnights").font(.title).fontWeight(.medium).padding(.leading)
-                                         Spacer()
-                                         
-                                     } // end of hstack
-                                     
-                                     
-                                     HStack {
-                                         // project by
-                                         Text("Taylor Swift").font(.headline).fontWeight(.thin)
+                            HStack {
+                                // Project title
+                                Text("Midnights").font(.title).fontWeight(.medium).padding(.leading)
+                                Spacer()
+                            } // end of hstack
+                            HStack {
+                            // project by
+                            Text("Taylor Swift").font(.headline).fontWeight(.thin)
                                              .padding(.leading, 17.0)
-                                             
-                                         Spacer()
-                                     }
-                    
+                            Spacer()
+                            }
                     /*
                     Divider().frame(height: 2).foregroundColor(Color.white)
                     */

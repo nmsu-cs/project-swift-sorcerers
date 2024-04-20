@@ -28,7 +28,7 @@ struct StartUpPage: View {  // start main
                         ], currentSelection: $currentSelection)
                     MainView()
                 } else {
-                    SideView()
+                    SideView(showProjects: $showProjects)
                     ProjectView(showProjects: $showProjects)
                 }
                 
@@ -40,10 +40,28 @@ struct StartUpPage: View {  // start main
 } // end main
 
 struct SideView: View {  // start struct
+    @Binding var showProjects: Bool
     var body: some View {
-        Text("")
+        ZStack {
+            VStack(spacing: 20) {
+                Button(action: {
+                    showProjects.toggle()
+                    }, label: {
+                        HStack {
+                            Text("Recent Project").foregroundColor(.black).fontWeight(.semibold)
+                            Image(systemName: "book.pages.fill").foregroundColor(.black)
+                        }
+                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 50)
+                        .cornerRadius(100)
+                    })
+                Spacer()
+            }
+            .padding()
+            .background(Color.white).ignoresSafeArea(edges: /*@START_MENU_TOKEN@*/.bottom/*@END_MENU_TOKEN@*/)
+        }
     }  // end body
 }  // end struct
+
 
 struct ProjectView: View {  // start struct
     @Binding var showProjects: Bool
