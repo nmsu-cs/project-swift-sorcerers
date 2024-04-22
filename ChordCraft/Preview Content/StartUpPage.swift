@@ -12,6 +12,7 @@ struct StartUpPage: View {  // start main
     // variables
     // content
     @State private var showProjects = false
+    @State private var createProjects = false
     @State private var currentSelection = 0
    
     
@@ -19,18 +20,20 @@ struct StartUpPage: View {  // start main
        // ProjectView(showProjects: $showProjects)
         // .frame(minWidth: 600, minHeight: 400)
         
-        NavigationView{ // start navigation view
+        NavigationView { // start navigation view
             
                 if showProjects {
                     ListView(options: [
                         Option(title: "Projects", imageName: "folder.fill"),
                         Option(title: "Settings", imageName: "gearshape")
-                        ], currentSelection: $currentSelection)
+                    ], currentSelection: $currentSelection, showProjects: $showProjects)
                     MainView()
                 } else {
                     SideView(showProjects: $showProjects)
                     ProjectView(showProjects: $showProjects)
                 }
+            
+            
                 
             
         } // end naviagtion

@@ -35,7 +35,7 @@ struct addButton: View {
 struct SubsectionView: View {
 
     let title: String
-    let items: [String]    
+    let items: [String]
     var body: some View {
         VStack(alignment: .leading) {
             // row title
@@ -55,7 +55,7 @@ struct SubsectionView: View {
             
             // songs
            
-            ScrollView(.horizontal, showsIndicators: false) {
+            ScrollView(.horizontal, showsIndicators: true) {
                 HStack(spacing: 20) {
                     ForEach(items, id: \.self) { _ in
                         NavigationLink(destination: Text("Folder")) {
@@ -63,13 +63,17 @@ struct SubsectionView: View {
                                 HStack {
                                     Image(systemName: "folder.fill").foregroundColor(.white).padding()
                                 }
-                            }
-                        }
-                    }
+                                
+                            } // end of vstack
+                        } // end of navlink
+                    } // end of for each
                 }
+               
             }
+            .frame(maxWidth: .infinity)
+            
         }
-        .frame(minWidth: 500, maxWidth: 500, minHeight: 80, idealHeight: 80, maxHeight: 80)
+        .frame(minWidth: 500, maxWidth: .infinity, minHeight: 80, idealHeight: 80, maxHeight: 80)
         // .border(.orange)
         .padding()
         .cornerRadius(10)
@@ -81,9 +85,23 @@ struct SubsectionView: View {
 
 struct MainView : View {
     @State private var headerMessage: String = ""
+    @State private var showingAddSongForm = false
     var body: some View {
+        ZStack{
+           
+            GeometryReader { geometry in
+                Image("leaf")
+                    .resizable()
+                    .scaledToFill()
+                    .edgesIgnoringSafeArea(.all)
+                    .opacity(0.3)
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+                    .blur(radius: 1.5)
+                    .clipped()
+            }
         ScrollView {
-            ZStack{
+           
+                
                 //Color.black.background()
                 VStack {
                     Spacer()
@@ -187,15 +205,83 @@ struct MainView : View {
                             addButton(action: {
                                 // Your action code here, for example:
                                 print("Button tapped")
+                                showingAddSongForm = true
+                                
                             })
                         }
+                        .sheet(isPresented: $showingAddSongForm) {
+                            AddsongForm(showingAddSongForm: $showingAddSongForm)
+                        }
                         .padding()
+                        
+                       
                     }
+                    Spacer()
+                    Spacer()
+                    // arranging row
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 15,style: .continuous)
+                            .background(
+                                .ultraThinMaterial,
+                                in: RoundedRectangle(cornerRadius: 8, style: .continuous)
+                             )
+                            .opacity(0.1)
+                            .padding(.leading, 8.0)
+                        HStack {
+                            SubsectionView(title: "Arranging", items: ["Item 1", "Item 2","item 3","item 4"])
+                            Spacer()
+                            
+                           
+                           // Image(systemName: "plus")
+                            addButton(action: {
+                                // Your action code here, for example:
+                                print("Button tapped")
+                            })
+
+                          
+                        }
+                        .padding()
+                       // .border(.blue)
+                    }
+                    
+                    Spacer()
+                    Spacer()
+                    // all row
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 15,style: .continuous)
+                            .background(
+                                .ultraThinMaterial,
+                                in: RoundedRectangle(cornerRadius: 8, style: .continuous)
+                             )
+                            .opacity(0.1)
+                            .padding(.leading, 8.0)
+                        HStack {
+                            SubsectionView(title: "All", items: ["Item 1", "Item 2","Item 2","Item 2","Item 2","Item 2","Item 2","Item 2","Item 2","Item 2","Item 2"])
+                            Spacer()
+                            
+                           
+                           // Image(systemName: "plus")
+                            addButton(action: {
+                                // Your action code here, for example:
+                                print("Button tapped")
+                            })
+
+                          
+                        }
+                        .padding()
+                       // .border(.blue)
+                    }
+                   
                 }
+                
                 .padding()
                 Spacer()
+                
+               
             }
+            
         }
+        
     }
     
     func updateHeaderMessage() {
@@ -217,6 +303,7 @@ struct MainView : View {
 struct ListView: View {
     let options: [Option]    // Options available in the list
     @Binding var currentSelection: Int    // Binding to track the current selection
+    @Binding var showProjects: Bool
     
     var body: some View {
         VStack {
@@ -242,9 +329,24 @@ struct ListView: View {
                 .padding(.leading, -19)
                 .onTapGesture {    // Handle tap gesture on an option
                     currentSelection = index
+                    if index == 0 {
+                        showProjects = true
                     }
+                }
             }
             Spacer()
+            //back button
+            HStack {
+                Button(action: {
+                    showProjects = false
+                }) {
+                    Image(systemName: "arrowshape.backward.circle.fill")
+                        .font(.title2)
+                }
+                .padding()
+                Spacer()
+            }
+            
         }
     }
 }
@@ -259,10 +361,11 @@ struct MainView_Previews: PreviewProvider {
 
 struct ListView_Previews: PreviewProvider {
     @State static var currentSelection = 0
+    @State static var showProjects = false
     static var previews: some View {
         ListView(options: [
             Option(title: "Projects", imageName: "folder.fill"),
             Option(title: "Settings", imageName: "gearshape")
-        ], currentSelection: $currentSelection)
+        ], currentSelection: $currentSelection, showProjects: $showProjects)
     }
 }
