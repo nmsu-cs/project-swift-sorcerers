@@ -134,7 +134,10 @@ struct MainView : View {
                             } // end of hstack
                             .sheet(isPresented: $showingAddSongForm) {
                       AddsongForm(showingAddSongForm: $showingAddSongForm)
+                                    .frame(width: 800, height: 700)
                     }
+                           
+                    
                             HStack {
                             // project by
                             Text("Taylor Swift").font(.headline).fontWeight(.thin)
@@ -261,6 +264,33 @@ struct MainView : View {
                        // .border(.blue)
                     }
                     
+                    Spacer()
+                    Spacer()
+                    
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 15,style: .continuous)
+                            .background(
+                                .ultraThinMaterial,
+                                in: RoundedRectangle(cornerRadius: 8, style: .continuous)
+                             )
+                            .opacity(0.1)
+                            .padding(.leading, 8.0)
+                        HStack {
+                            SubsectionView(title: "Ideas", items: ["Item 1", "Item 2","item 3","item 4"])
+                            Spacer()
+                            
+                           
+                           // Image(systemName: "plus")
+                          //  addButton(action: {
+                          //      // Your action code here, for example:
+                          //      print("Button tapped")
+                          //  })
+
+                          
+                        }
+                        .padding()
+                       // .border(.blue)
+                    }
                     Spacer()
                     Spacer()
                     
