@@ -9,8 +9,9 @@ import SwiftUI
 
 
 struct DropdownMenuView: View {
-    @State private var selectedOption: String = "Option 1"
+    @Binding var selectedOption: String
     let options = ["Completed", "Mastering", "Mixing", "Arranging", "Ideas"]
+    let initialText: String = "Select an Option"
 
     var body: some View {
         Menu {
@@ -20,7 +21,7 @@ struct DropdownMenuView: View {
                 })
             }
         } label: {
-            Label("Select an Option", systemImage: "chevron.down")
+            Label(selectedOption == "" ? initialText : selectedOption, systemImage: "chevron.down")
                 .padding(.horizontal, 60)
                 .padding(.top, 7)
                 .padding(.bottom, 7)
@@ -75,7 +76,7 @@ struct AddsongForm: View {
     // var for file path
     @State private var selectedFilePath: String?
     
-    let stageOptions = ["Completed", "Mastering", "Mixing","Arranging", "Ideas"]
+   // let stageOptions = ["Completed", "Mastering", "Mixing","Arranging", "Ideas"]
 
     
     var body: some View {
@@ -216,7 +217,7 @@ struct AddsongForm: View {
                         }
                      
                         HStack {
-                            DropdownMenuView() // gotta link the song.stage to what is selected
+                            DropdownMenuView(selectedOption: $stagein)
                             Spacer()
                         }
                         
