@@ -17,16 +17,37 @@ struct showSongsTest: View {
         
         VStack {
             Text("Click button to add song")
-            Button("Add a song") {
-                addSong()
+            
+        // The button was not calling the function correctly.
+            // need to pass the call as an "action" parameter, the other stuff is the styling
+            Button(action: { addSong()}) {
+                Text("add")
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(10)
             }
             
-            List {
-                ForEach(songs) { song in
-                    Text(song.title)
+            // did not need the forloop sorry,
+            List(songs) { item in  // this turns the array into a list and the vstack displays them vertically.
+                VStack() {
+                    Text(item.title)
+            // uncoment to display the other properties
+                  //  Text("Genre: \(item.genre)")
+                  //  Text("date: \(item.dateCreated)")
+                  //  Text("tempo: \(item.tempo)")
+                  //  Text("rating: \(item.starRating)")
+                  //  Text("key: \(item.key)")
+                  //  Text("notes: \(item.notes)")
+                  //  Text("Path to file: \(item.filePath)")
+                  //  Text("Stage of production: \(item.stage)")
+
+                        .foregroundColor(.gray)
                 }
+                
             }
-        }
+        }       
+        .buttonStyle(PlainButtonStyle()) // makes button look nice?
+
     }
         
         

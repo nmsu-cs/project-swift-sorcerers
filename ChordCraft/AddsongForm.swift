@@ -159,7 +159,7 @@ struct AddsongForm: View {
 struct AddsongForm_Previews: PreviewProvider {
     static var previews: some View {
         AddsongForm(showingAddSongForm: .constant(true))
-            .modelContainer(for: Item.self, inMemory: false)
+         //   .modelContainer(for: Item.self, inMemory: false)    // comented out to fix preview and make it visible
             // Provide any required environment objects or settings here
     }
 }

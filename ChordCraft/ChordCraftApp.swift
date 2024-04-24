@@ -14,7 +14,7 @@ struct ChordCraftApp: App {
         let schema = Schema([
             song.self, Project.self
         ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
+        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false) // set  isStoredInMemoryOnly to false  to keep stuff forever,
 
         do {
             return try ModelContainer(for: schema, configurations: [modelConfiguration])
@@ -27,7 +27,7 @@ struct ChordCraftApp: App {
         WindowGroup {
            // AddsongForm()
           // ContentView() // main
-            showSongsTest()
+           showSongsTest()
         //AddProjectForm()
         }
         .windowStyle(HiddenTitleBarWindowStyle()) // hides the title bar
