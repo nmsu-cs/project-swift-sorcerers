@@ -26,8 +26,8 @@ struct ChordCraftApp: App {
     var body: some Scene {
         WindowGroup {
            // AddsongForm()
-          // ContentView() // main
-           showSongsTest()
+           ContentView() // main
+         //  showSongsTest()
         //AddProjectForm()
         }
         .windowStyle(HiddenTitleBarWindowStyle()) // hides the title bar

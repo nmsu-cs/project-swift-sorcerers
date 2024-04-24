@@ -264,36 +264,36 @@ struct MainView : View {
                     Spacer()
                     Spacer()
                     
+                    // WE ARE SO BACK
                     // all row this where im trying to insert the songs from the db
                     ZStack {
-                        RoundedRectangle(cornerRadius: 15,style: .continuous)
+                        RoundedRectangle(cornerRadius: 15, style: .continuous)
                             .background(
                                 .ultraThinMaterial,
                                 in: RoundedRectangle(cornerRadius: 8, style: .continuous)
-                             )
+                            )
                             .opacity(0.1)
                             .padding(.leading, 8.0)
-                        HStack {
-                           // Text("songs")
-                           // Text("songs")
-                            List(songs) { song in
-                                Text(song.title)
+                        
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 8) { // Adjust the spacing between items as needed
+                                ForEach(songs) { item in
+                                    VStack(spacing: 4.0) {
+                                        Text(item.title)
+                                            .foregroundColor(.gray)
+                                        Image(systemName: "folder.fill").foregroundColor(.white).padding()
+
+                                    }
+                                    .padding()
+                                    .cornerRadius(8)
+                                }
                             }
-
-                            Spacer()
-                            
-                           
-                           // Image(systemName: "plus")
-                          //  addButton(action: {
-                          //      // Your action code here, for example:
-                          //      print("Button tapped")
-                          //  })
-
-                          
+                            .padding(.horizontal)
                         }
                         .padding()
-                       // .border(.blue)
+                        
                     }
+
                    
                 }
                 
