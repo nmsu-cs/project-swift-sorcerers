@@ -9,8 +9,8 @@ import SwiftUI
 
 struct AddsongForm: View {
     @Binding var showingAddSongForm: Bool
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [song]
+    @Environment(\.modelContext) public var modelContext // where songs are getting stored
+    @Query private var songs: [song] // where songs are stored
 
     // variables to store input
     @State private var buttonText = "Add"
@@ -27,9 +27,12 @@ struct AddsongForm: View {
     
     let stageOptions = ["Completed", "Mastering", "Mixing", "Ideas"]
 
+    
     var body: some View {
         VStack(spacing: 20) {
             HStack {
+             
+                Spacer()
                 Button(action: {
                     // Define the action you want the button to perform here
                     print("Button was tapped")
@@ -38,8 +41,8 @@ struct AddsongForm: View {
                     Image(systemName: "xmark.circle.fill")
                         .font(.title) // Optional: Adjust the size of the image
                         .foregroundColor(.gray) // Optional: Change the color of the image
+                        
                 }
-                Spacer()
             }
             Text("New Song")
                 .font(.title)
@@ -98,7 +101,7 @@ struct AddsongForm: View {
             Text("List of Songs Stored")
                 .font(.headline)
 
-            List(items) { item in
+            List(songs) { item in
                 VStack(alignment: .leading) {
                     Text(item.title)
                     Text("Genre: \(item.genre)")
@@ -107,17 +110,21 @@ struct AddsongForm: View {
                     Text("rating: \(item.starRating)")
                     Text("key: \(item.key)")
                     Text("notes: \(item.notes)")
-                    Text("Path to MP3 file: \(item.filePath)")
+                    Text("Path to file: \(item.filePath)")
                     Text("Stage of production: \(item.stage)")
 
                         .foregroundColor(.gray)
                 }
+                
             }
         }
         .padding()
         .buttonStyle(PlainButtonStyle())
+        
+       
     }
-
+  
+    
     private func addItem() -> Bool {
         withAnimation {
             if let tempoin = Double(songtempo), let rating = Double(startrate) {
@@ -152,7 +159,7 @@ struct AddsongForm: View {
 struct AddsongForm_Previews: PreviewProvider {
     static var previews: some View {
         AddsongForm(showingAddSongForm: .constant(true))
-            //.modelContainer(for: Item.self, inMemory: true)
+            .modelContainer(for: Item.self, inMemory: false)
             // Provide any required environment objects or settings here
     }
 }

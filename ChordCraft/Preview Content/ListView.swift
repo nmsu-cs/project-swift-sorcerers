@@ -1,5 +1,5 @@
 import SwiftUI
-
+import SwiftData
 
 struct Option: Hashable { // Defines a struct to represent an option with a title and an image name
     let title: String
@@ -34,6 +34,7 @@ struct SubsectionView: View {
 
     let title: String
     let items: [String]
+   
     var body: some View {
         VStack(alignment: .leading) {
             // row title
@@ -53,14 +54,17 @@ struct SubsectionView: View {
             
             // songs
            
-            ScrollView(.horizontal, showsIndicators: true) {
+            ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 20) {
                     ForEach(items, id: \.self) { _ in
                         NavigationLink(destination: Text("Folder")) {
                             VStack {
                                 HStack {
                                     Image(systemName: "folder.fill").foregroundColor(.white).padding()
-                                }
+                                    
+                                } // end of hstack
+                               // Text("Song")
+                                    
                                 
                             } // end of vstack
                         } // end of navlink
@@ -84,6 +88,8 @@ struct SubsectionView: View {
 struct MainView : View {
     @State private var headerMessage: String = ""
     @State private var showingAddSongForm = false
+    @Query private var songs: [song] // where songs are stored
+    
     var body: some View {
         ZStack{
            
@@ -102,6 +108,8 @@ struct MainView : View {
                 
                 //Color.black.background()
                 VStack {
+                    
+                   
                     Spacer()
                     Text(headerMessage).font(.largeTitle)
                         .fontWeight(.semibold)
@@ -116,7 +124,17 @@ struct MainView : View {
                                 // Project title
                                 Text("Midnights").font(.title).fontWeight(.medium).padding(.leading)
                                 Spacer()
+                                addButton(action: {
+                                    // Your action code here, for example:
+                                    print("Button tapped")
+                                    showingAddSongForm = true
+                                    
+                                })
+                                .padding(.bottom,-20)
                             } // end of hstack
+                            .sheet(isPresented: $showingAddSongForm) {
+                      AddsongForm(showingAddSongForm: $showingAddSongForm)
+                    }
                             HStack {
                             // project by
                             Text("Taylor Swift").font(.headline).fontWeight(.thin)
@@ -151,10 +169,10 @@ struct MainView : View {
                             
                            
                            // Image(systemName: "plus")
-                            addButton(action: {
+                           // addButton(action: {
                                 // Your action code here, for example:
-                                print("Button tapped")
-                            })
+                           //     print("Button tapped")
+                           // })
 
                           
                         }
@@ -165,6 +183,7 @@ struct MainView : View {
                     Spacer()
                     // Mastering row
                     ZStack {
+                        
                         RoundedRectangle(cornerRadius: 15,style: .continuous)
                             .background(
                                 .ultraThinMaterial,
@@ -176,10 +195,10 @@ struct MainView : View {
                             SubsectionView(title: "Mastering", items: ["Item 3", "Item 4", "Item 5"])
                             Spacer()
                             
-                            addButton(action: {
-                                // Your action code here, for example:
-                                print("Button tapped")
-                            })
+                           // addButton(action: {
+                           //     // Your action code here, for example:
+                           //     print("Button tapped")
+                           // })
                             
                         }
                         
@@ -200,16 +219,16 @@ struct MainView : View {
                         HStack {
                             SubsectionView(title: "Mixing", items: ["Item 6", "Item 7", "Item 8", "Item 9"])
                             Spacer()
-                            addButton(action: {
-                                // Your action code here, for example:
-                                print("Button tapped")
-                                showingAddSongForm = true
-                                
-                            })
+                          //  addButton(action: {
+                          //      // Your action code here, for example:
+                          //      print("Button tapped")
+                          //      showingAddSongForm = true
+                          //
+                          //  })
                         }
-                        .sheet(isPresented: $showingAddSongForm) {
-                            AddsongForm(showingAddSongForm: $showingAddSongForm)
-                        }
+                        //.sheet(isPresented: $showingAddSongForm) {
+                        //    AddsongForm(showingAddSongForm: $showingAddSongForm)
+                        //}
                         .padding()
                         
                        
@@ -231,10 +250,10 @@ struct MainView : View {
                             
                            
                            // Image(systemName: "plus")
-                            addButton(action: {
-                                // Your action code here, for example:
-                                print("Button tapped")
-                            })
+                          //  addButton(action: {
+                          //      // Your action code here, for example:
+                          //      print("Button tapped")
+                          //  })
 
                           
                         }
@@ -244,7 +263,8 @@ struct MainView : View {
                     
                     Spacer()
                     Spacer()
-                    // all row
+                    
+                    // all row this where im trying to insert the songs from the db
                     ZStack {
                         RoundedRectangle(cornerRadius: 15,style: .continuous)
                             .background(
@@ -254,15 +274,20 @@ struct MainView : View {
                             .opacity(0.1)
                             .padding(.leading, 8.0)
                         HStack {
-                            SubsectionView(title: "All", items: ["Item 1", "Item 2","Item 2","Item 2","Item 2","Item 2","Item 2","Item 2","Item 2","Item 2","Item 2"])
+                           // Text("songs")
+                           // Text("songs")
+                            List(songs) { song in
+                                Text(song.title)
+                            }
+
                             Spacer()
                             
                            
                            // Image(systemName: "plus")
-                            addButton(action: {
-                                // Your action code here, for example:
-                                print("Button tapped")
-                            })
+                          //  addButton(action: {
+                          //      // Your action code here, for example:
+                          //      print("Button tapped")
+                          //  })
 
                           
                         }
