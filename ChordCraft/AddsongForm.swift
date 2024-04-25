@@ -39,7 +39,7 @@ struct myRoundedTextFieldStyle: TextFieldStyle {
         configuration
             .padding(5)
             .background(.gray)
-            .cornerRadius(15)
+            .cornerRadius(9)
             .opacity(0.3)
             
             
@@ -99,6 +99,7 @@ struct AddsongForm: View {
             HStack {
                 Text("New Song")
                     .font(.title)
+                    .fontWeight(.medium)
                 Image(systemName: "music.note")
                     .font(.system(size: 18))
                 
@@ -106,11 +107,12 @@ struct AddsongForm: View {
                 Spacer()
                 
             }
+            .padding(.leading, 40)
             
             HStack {
-                RoundedRectangle(cornerRadius: 15, style: .continuous)
-                    .frame(height: 3)
-                .opacity(0.4)
+               // RoundedRectangle(cornerRadius: 15, style: .continuous)
+               //     .frame(height: 3)
+               // .opacity(0.4)
                 Spacer()
             }
             HStack {
@@ -122,6 +124,7 @@ struct AddsongForm: View {
                         HStack {
                             Text("Title")
                                 .font(.title2)
+                                .fontWeight(.medium)
                             Spacer()
                         }
                         TextField("Song Name", text: $songName)
@@ -137,6 +140,8 @@ struct AddsongForm: View {
                         HStack {
                             Text("Genre")
                                 .font(.title2)
+                                .fontWeight(.medium)
+                                
                             Spacer()
                         }
                         TextField("Song Genre", text: $songG)
@@ -150,6 +155,7 @@ struct AddsongForm: View {
                         HStack {
                             Text("Tempo")
                                 .font(.title2)
+                                .fontWeight(.medium)
                             Spacer()
                             
                            
@@ -163,10 +169,11 @@ struct AddsongForm: View {
                         HStack {
                             Text("Rating")
                                 .font(.title2)
+                                .fontWeight(.medium)
                             Spacer()
                         }
                         
-                        TextField("Start Rating", text: $startrate)
+                        TextField("Rating 0-5", text: $startrate)
                             .textFieldStyle(myRoundedTextFieldStyle())
                         
                     }
@@ -176,6 +183,7 @@ struct AddsongForm: View {
                         HStack {
                             Text("Key")
                                 .font(.title2)
+                                .fontWeight(.medium)
                             Spacer()
                         }
                         TextField("Song Key", text: $songkey)
@@ -199,6 +207,7 @@ struct AddsongForm: View {
                         HStack {
                             Text("Notes")
                                 .font(.title2)
+                                .fontWeight(.medium)
                             Spacer()
                         }
                         
@@ -210,6 +219,7 @@ struct AddsongForm: View {
                     VStack {
                         HStack{
                             Text("Stage of production")
+                                .fontWeight(.medium)
                                 .font(.title2)
                             Spacer()
                             
@@ -229,6 +239,7 @@ struct AddsongForm: View {
                         HStack{
                             Text("Select file")
                                 .font(.title2)
+                                .fontWeight(.medium)
                             Spacer()
                             
                             
@@ -267,7 +278,8 @@ struct AddsongForm: View {
                 
                 
                
-            } // end of hstack
+            }
+            .padding(.leading, 40) // end of hstack
             
                 HStack {
                     Button(action: {
@@ -289,6 +301,7 @@ struct AddsongForm: View {
                     }
                     
                 }
+                .padding(.bottom, 30)
             
            
             // Dropdown menu for stage selection
@@ -386,7 +399,7 @@ struct AddsongForm: View {
 struct AddsongForm_Previews: PreviewProvider {
     static var previews: some View {
         AddsongForm(showingAddSongForm: .constant(true))
-            .frame(width: 800, height: 700)  // Specifies the frame size for the view
+            .frame(width: 700, height: 800)  // Specifies the frame size for the view
                        .previewLayout(.sizeThatFits)
          //   .modelContainer(for: Item.self, inMemory: false)    // comented out to fix preview and make it visible
             // Provide any required environment objects or settings here

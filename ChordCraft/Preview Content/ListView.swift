@@ -391,6 +391,8 @@ struct ListView: View {
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
+            .frame(width: 900, height: 600)  // Specifies the frame size for the view
+                       .previewLayout(.sizeThatFits)
     }
 }
 
