@@ -33,39 +33,40 @@ struct addButton: View {
 struct SubsectionView: View {
 
     let title: String
-    let items: [String]
+    let songs: [song]
    
     var body: some View {
         VStack(alignment: .leading) {
             // row title
             HStack {
                 Text(title)
-                    .padding(.leading, -4)
-                    .padding(.top, -30)
+                   // .padding(.leading, -4)
+                   // .padding(.top, -30)
                     .font(.title2)
                     .fontWeight(.medium)
                     .foregroundColor(Color.gray)
-                .border(.blue)
+               // .border(.blue)
                 
                 Image(systemName: "chevron.down")
                 //.border(.pink)
-                .padding(.top, -25)
+               // .padding(.top, -25)
             }
             
             // songs
            
-            ScrollView(.horizontal, showsIndicators: false) {
+            ScrollView(.horizontal, showsIndicators: true) {
                 HStack(spacing: 20) {
-                    ForEach(items, id: \.self) { _ in
+                    ForEach(songs) { song in
                         NavigationLink(destination: Text("Folder")) {
                             VStack {
                                 HStack {
                                     Image(systemName: "folder.fill").foregroundColor(.white).padding()
                                     
+                                    
                                 } // end of hstack
                                // Text("Song")
                                     
-                                
+                                Text(song.title)
                             } // end of vstack
                         } // end of navlink
                     } // end of for each
@@ -122,7 +123,7 @@ struct MainView : View {
                         Spacer()
                             HStack {
                                 // Project title
-                                Text("Midnights").font(.title).fontWeight(.medium).padding(.leading)
+                                Text("My album").font(.title).fontWeight(.medium).padding(.leading)
                                 Spacer()
                                 addButton(action: {
                                     // Your action code here, for example:
@@ -140,7 +141,7 @@ struct MainView : View {
                     
                             HStack {
                             // project by
-                            Text("Taylor Swift").font(.headline).fontWeight(.thin)
+                            Text("Daniel Moreno").font(.headline).fontWeight(.thin)
                                              .padding(.leading, 17.0)
                             Spacer()
                             }
@@ -155,7 +156,7 @@ struct MainView : View {
                     Spacer()
                     Spacer()
                         
-                    
+                    let completedSongs = songs.filter {$0.stage == "Completed"}
                     // loading rows in view
                     // completed row
                     ZStack {
@@ -167,7 +168,7 @@ struct MainView : View {
                             .opacity(0.1)
                             .padding(.leading, 8.0)
                         HStack {
-                            SubsectionView(title: "Completed", items: ["Item 1", "Item 2","item 3","item 4"])
+                            SubsectionView(title: "Completed", songs: completedSongs)
                             Spacer()
                             
                            
@@ -185,6 +186,7 @@ struct MainView : View {
                     Spacer()
                     Spacer()
                     // Mastering row
+                    let masteredSongs = songs.filter {$0.stage == "Mastering"}
                     ZStack {
                         
                         RoundedRectangle(cornerRadius: 15,style: .continuous)
@@ -195,7 +197,7 @@ struct MainView : View {
                             .opacity(0.1)
                             .padding(.leading, 8.0)
                         HStack {
-                            SubsectionView(title: "Mastering", items: ["Item 3", "Item 4", "Item 5"])
+                            SubsectionView(title: "Mastering", songs: masteredSongs)
                             Spacer()
                             
                            // addButton(action: {
@@ -211,6 +213,7 @@ struct MainView : View {
                     Spacer()
                     
                     // mixing row
+                    let mixedSongs = songs.filter {$0.stage == "Mixing"}
                     ZStack {
                         RoundedRectangle(cornerRadius: 15,style: .continuous)
                             .background(
@@ -220,7 +223,7 @@ struct MainView : View {
                             .opacity(0.1)
                             .padding(.leading, 8.0)
                         HStack {
-                            SubsectionView(title: "Mixing", items: ["Item 6", "Item 7", "Item 8", "Item 9"])
+                            SubsectionView(title: "Mixing", songs: mixedSongs)
                             Spacer()
                           //  addButton(action: {
                           //      // Your action code here, for example:
@@ -239,6 +242,7 @@ struct MainView : View {
                     Spacer()
                     Spacer()
                     // arranging row
+                    let arrangingSongs = songs.filter {$0.stage == "Arranging"}
                     ZStack {
                         RoundedRectangle(cornerRadius: 15,style: .continuous)
                             .background(
@@ -248,7 +252,7 @@ struct MainView : View {
                             .opacity(0.1)
                             .padding(.leading, 8.0)
                         HStack {
-                            SubsectionView(title: "Arranging", items: ["Item 1", "Item 2","item 3","item 4"])
+                            SubsectionView(title: "Arranging", songs: arrangingSongs)
                             Spacer()
                             
                            
@@ -267,6 +271,8 @@ struct MainView : View {
                     Spacer()
                     Spacer()
                     
+                    // ideas row
+                    let ideaSongs = songs.filter {$0.stage == "Ideas"}
                     ZStack {
                         RoundedRectangle(cornerRadius: 15,style: .continuous)
                             .background(
@@ -276,7 +282,7 @@ struct MainView : View {
                             .opacity(0.1)
                             .padding(.leading, 8.0)
                         HStack {
-                            SubsectionView(title: "Ideas", items: ["Item 1", "Item 2","item 3","item 4"])
+                            SubsectionView(title: "Ideas", songs: ideaSongs)
                             Spacer()
                             
                            
@@ -296,33 +302,32 @@ struct MainView : View {
                     
                     // WE ARE SO BACK
                     // all row this where im trying to insert the songs from the db
+                    
                     ZStack {
-                        RoundedRectangle(cornerRadius: 15, style: .continuous)
+                        RoundedRectangle(cornerRadius: 15,style: .continuous)
                             .background(
                                 .ultraThinMaterial,
                                 in: RoundedRectangle(cornerRadius: 8, style: .continuous)
-                            )
+                             )
                             .opacity(0.1)
                             .padding(.leading, 8.0)
-                        
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack(spacing: 8) { // Adjust the spacing between items as needed
-                                ForEach(songs) { item in
-                                    VStack(spacing: 4.0) {
-                                        Text(item.title)
-                                            .foregroundColor(.gray)
-                                        Image(systemName: "folder.fill").foregroundColor(.white).padding()
+                        HStack {
+                            SubsectionView(title: "All", songs: songs)
+                            Spacer()
+                            
+                           
+                           // Image(systemName: "plus")
+                          //  addButton(action: {
+                          //      // Your action code here, for example:
+                          //      print("Button tapped")
+                          //  })
 
-                                    }
-                                    .padding()
-                                    .cornerRadius(8)
-                                }
-                            }
-                            .padding(.horizontal)
+                          
                         }
                         .padding()
-                        
+                       // .border(.blue)
                     }
+             
 
                    
                 }
