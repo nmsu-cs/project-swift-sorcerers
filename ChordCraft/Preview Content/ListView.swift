@@ -31,7 +31,10 @@ struct addButton: View {
 
 // information in row
 struct SubsectionView: View {
-
+    @State private var isExpanded: Bool = true
+    @State private var selectedSong: song?
+    @State private var showingSongView = false
+    
     let title: String
     let songs: [song]
    
@@ -47,39 +50,56 @@ struct SubsectionView: View {
                     .foregroundColor(Color.gray)
                // .border(.blue)
                 
-                Image(systemName: "chevron.down")
-                //.border(.pink)
-               // .padding(.top, -25)
+                Button(action: {
+                                  withAnimation {
+                                      isExpanded.toggle()
+                                  }
+                              }) {
+                                  Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
+                                      .foregroundColor(.white)
+                                      .padding(.horizontal)
+                                      .font(.system(size: 13))
+                              }
+                              .buttonStyle(PlainButtonStyle())
             }
             
             // songs
-           
-            ScrollView(.horizontal, showsIndicators: true) {
-                HStack(spacing: 20) {
-                    ForEach(songs) { song in
-                        NavigationLink(destination: Text("Folder")) {
-                            VStack {
-                                HStack {
-                                    Image(systemName: "folder.fill").foregroundColor(.white).padding()
-                                    
-                                    
-                                } // end of hstack
-                               // Text("Song")
-                                    
-                                Text(song.title)
-                            } // end of vstack
-                        } // end of navlink
-                    } // end of for each
+            if isExpanded {
+                ScrollView(.horizontal, showsIndicators: true) {
+                             HStack(spacing: 20) {
+                                 ForEach(songs) { song in
+                                     Button(action: {
+                                         self.selectedSong = song
+                                         showingSongView = true
+                                     }) {
+                                         VStack {
+                                             HStack {
+                                                 Image(systemName: "folder.fill")
+                                                     .padding()
+                                             }
+                                             Text(song.title)
+                                         }
+                                     }
+                                 } // end of for each
+                             }
+                            
+                         }
+                .sheet(isPresented: $showingSongView) {
+                //    if let currentSong = selectedSong {
+                //        songView(currentSong: currentSong)
+                //    }
+                    songView(showingSongView: $showingSongView)
+                        .frame(width: 700, height: 400)
                 }
-               
-            }
-            .frame(maxWidth: .infinity)
-            
+                         .frame(maxWidth: .infinity)
+                       
+                      } // end of if
         }
-        .frame(minWidth: 500, maxWidth: .infinity, minHeight: 80, idealHeight: 80, maxHeight: 80)
         // .border(.orange)
         .padding()
         .cornerRadius(10)
+       
+        
         }
     }
     
@@ -123,7 +143,7 @@ struct MainView : View {
                         Spacer()
                             HStack {
                                 // Project title
-                                Text("My album").font(.title).fontWeight(.medium).padding(.leading)
+                                Text("Midnights").font(.title).fontWeight(.medium).padding(.leading)
                                 Spacer()
                                 addButton(action: {
                                     // Your action code here, for example:
@@ -141,7 +161,7 @@ struct MainView : View {
                     
                             HStack {
                             // project by
-                            Text("Daniel Moreno").font(.headline).fontWeight(.thin)
+                            Text("Taylor Swift").font(.headline).fontWeight(.thin)
                                              .padding(.leading, 17.0)
                             Spacer()
                             }
