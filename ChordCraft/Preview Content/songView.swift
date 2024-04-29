@@ -10,13 +10,23 @@
 // for rating, we should have 5 images?
 
 import SwiftUI
+import AppKit
 
 struct songView: View {
     @Binding var showingSongView: Bool
     @Binding var currentSong: song?
    // @Environment(\.colorScheme) var colorScheme
     //var currentSong: song
+    
+    func openFile(at path: String) {
+            let url = URL(fileURLWithPath: path)
+            NSWorkspace.shared.open(url)
+        }
+    
     var body: some View {
+        
+        
+        
         ZStack {
             
        //      GeometryReader { geometry in
@@ -38,8 +48,30 @@ struct songView: View {
                     
                     VStack(spacing: 20){
                         HStack {
+                            Text("Song")
+                                .font(/*@START_MENU_TOKEN@*/.largeTitle/*@END_MENU_TOKEN@*/)
+                                .fontWeight(.semibold)
+                                .padding(.leading, 1.0)
+                            
+                            
+                            Button(action: {
+                                if let path = currentSong?.filePath {
+                                    openFile(at: path)
+                                } else {
+                                    print("No file path available")
+                                    // Optionally handle the error, e.g., show an alert
+                                }
+                            }) {
+                                Image(systemName: "play.circle")
+                                    .font(.title)
+                                    .foregroundColor(.white)
+                            }
+
+                            
                             
                             Spacer()
+                            
+                            
                             Button(action: {
                                 // Define the action you want the button to perform here
                                 print("Button was tapped")
