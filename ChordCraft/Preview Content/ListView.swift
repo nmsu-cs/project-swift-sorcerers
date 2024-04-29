@@ -70,7 +70,7 @@ struct SubsectionView: View {
                                  ForEach(songs) { song in
                                      Button(action: {
                                          self.selectedSong = song
-                                         showingSongView = true
+                                         self.showingSongView = true
                                      }) {
                                          VStack {
                                              HStack {
@@ -85,11 +85,11 @@ struct SubsectionView: View {
                             
                          }
                 .sheet(isPresented: $showingSongView) {
-                //    if let currentSong = selectedSong {
-                //        songView(currentSong: currentSong)
-                //    }
-                    songView(showingSongView: $showingSongView)
-                        .frame(width: 700, height: 400)
+                   
+                        songView(showingSongView: $showingSongView, currentSong: $selectedSong)
+                            .frame(width:700, height: 400)
+                    
+                        
                 }
                          .frame(maxWidth: .infinity)
                        

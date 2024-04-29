@@ -27,6 +27,7 @@ struct ContentView: View {
                 view
                 }
             }
+        
         //.frame(idealWidth: 800, idealHeight: 400)
     }
 }

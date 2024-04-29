@@ -13,6 +13,7 @@ import SwiftUI
 
 struct songView: View {
     @Binding var showingSongView: Bool
+    @Binding var currentSong: song?
    // @Environment(\.colorScheme) var colorScheme
     //var currentSong: song
     var body: some View {
@@ -77,7 +78,7 @@ struct songView: View {
                                         .bold()
                                         .padding()
                                     
-                                    Text("Name of song")
+                                    Text(currentSong?.title ?? "No Title")
                                         .padding()
                                         .offset(y: 20)
                                 }
@@ -96,7 +97,7 @@ struct songView: View {
                                         .bold()
                                         .padding()
                                     
-                                    Text("Completed")
+                                    Text(currentSong?.stage ?? "No Stage")
                                         .padding()
                                         .offset(y: 20)
                                         
@@ -116,7 +117,7 @@ struct songView: View {
                                         .bold()
                                         .padding()
                                     
-                                    Text("*****")
+                                    Text(String(repeating: "★", count: Int(currentSong?.starRating ?? 0)))
                                         .padding()
                                         .offset(y: 20)
                                 }
@@ -138,7 +139,7 @@ struct songView: View {
                                         .bold()
                                         .padding()
                                     
-                                    Text("This track is ...") // have to check that this wont go out of the white
+                                    Text(currentSong?.notes ?? "None") // have to check that this wont go out of the white
                                         .padding()
                                         .offset(y: 20)
                                 }
@@ -158,7 +159,7 @@ struct songView: View {
                                             .bold()
                                             .padding()
                                         
-                                        Text("4-20-24")
+                                        Text(currentSong?.dateCreated ?? "Unknown")
                                             .padding()
                                             .offset(y: 20)
                                     }
@@ -177,7 +178,7 @@ struct songView: View {
                                             .bold()
                                             .padding()
                                         
-                                        Text("165 BPM")
+                                        Text("\(currentSong?.tempo ?? 0, specifier: "%.0f") BPM")
                                             .padding()
                                             .offset(y: 20)
                                     }
@@ -198,7 +199,7 @@ struct songView: View {
                                             .bold()
                                             .padding()
                                         
-                                        Text("I don't know")
+                                        Text(currentSong?.genre ?? "Unknown")
                                             .padding()
                                             .offset(y: 20)
                                     }
@@ -217,7 +218,7 @@ struct songView: View {
                                             .bold()
                                             .padding()
                                         
-                                        Text("F# Minor")
+                                        Text(currentSong?.key ?? "Unknown")
                                             .padding()
                                             .offset(y: 20)
                                     }
@@ -238,10 +239,18 @@ struct songView: View {
 
 struct songView_Previews: PreviewProvider {
     static var previews: some View {
-        let sampleSong = song(title: "Good Morning", filePath: "asdfasdf", tempo: 120, genre: "Rap", key: "Fm", starRating: 3, notes: "None", sta: "Completed")
-        
-        songView(showingSongView: .constant(true))
-            .frame(width: 700, height: 400)
+        // Make the sample song optional here
+             let sampleSong: song? = song(title: "Good Morning", filePath: "asdfasdf", tempo: 120, genre: "Rap", key: "F# Minor", starRating: 3, notes: "A great song", sta: "Completed")
+             
+             // Create a constant binding to an optional song
+             let songBinding = Binding.constant(sampleSong)
+             
+             // Create a constant binding for showingSongView
+             let showingSongViewBinding = Binding.constant(true)
+             
+             // Now include showingSongView in the songView initializer
+             songView(showingSongView: showingSongViewBinding, currentSong: songBinding)
+                 .frame(width: 700, height: 400)
     }
 }
 
