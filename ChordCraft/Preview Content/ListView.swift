@@ -35,32 +35,41 @@ struct SubsectionView: View {
     @State private var selectedSong: song?
     @State private var showingSongView = false
     
+    let songCount: Int
     let title: String
     let songs: [song]
+
    
     var body: some View {
         VStack(alignment: .leading) {
             // row title
-            HStack {
-                Text(title)
-                   // .padding(.leading, -4)
-                   // .padding(.top, -30)
-                    .font(.title2)
-                    .fontWeight(.medium)
-                    .foregroundColor(Color.gray)
-               // .border(.blue)
-                
-                Button(action: {
-                                  withAnimation {
-                                      isExpanded.toggle()
+            VStack(alignment: .leading) {
+                HStack {
+                    Text(title)
+                       // .padding(.leading, -4)
+                       // .padding(.top, -30)
+                        .font(.title2)
+                        .fontWeight(.regular)
+                        .foregroundColor(Color.gray)
+                   // .border(.blue)
+                    
+                    Button(action: {
+                                      withAnimation {
+                                          isExpanded.toggle()
+                                      }
+                                  }) {
+                                      Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
+                                          .foregroundColor(.white)
+                                          .padding(.horizontal,2)
+                                          .font(.system(size: 15))
                                   }
-                              }) {
-                                  Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
-                                      .foregroundColor(.white)
-                                      .padding(.horizontal)
-                                      .font(.system(size: 13))
-                              }
-                              .buttonStyle(PlainButtonStyle())
+                                  .buttonStyle(PlainButtonStyle())
+                }
+                Text("\(songCount)")  // Using string interpolation to convert Int to String
+                    .font(.title2)
+                    .fontWeight(.light)
+                    .padding(.leading, 1)
+                
             }
             
             // songs
@@ -177,6 +186,8 @@ struct MainView : View {
                     Spacer()
                         
                     let completedSongs = songs.filter {$0.stage == "Completed"}
+                    let completedCount = completedSongs.count
+
                     // loading rows in view
                     // completed row
                     ZStack {
@@ -188,7 +199,7 @@ struct MainView : View {
                             .opacity(0.1)
                             .padding(.leading, 8.0)
                         HStack {
-                            SubsectionView(title: "Completed", songs: completedSongs)
+                            SubsectionView(songCount: completedCount, title: "Completed", songs: completedSongs)
                             Spacer()
                             
                            
@@ -207,6 +218,7 @@ struct MainView : View {
                     Spacer()
                     // Mastering row
                     let masteredSongs = songs.filter {$0.stage == "Mastering"}
+                    let masteringCount = masteredSongs.count
                     ZStack {
                         
                         RoundedRectangle(cornerRadius: 15,style: .continuous)
@@ -217,7 +229,7 @@ struct MainView : View {
                             .opacity(0.1)
                             .padding(.leading, 8.0)
                         HStack {
-                            SubsectionView(title: "Mastering", songs: masteredSongs)
+                            SubsectionView(songCount: masteringCount, title: "Mastering", songs: masteredSongs)
                             Spacer()
                             
                            // addButton(action: {
@@ -234,6 +246,7 @@ struct MainView : View {
                     
                     // mixing row
                     let mixedSongs = songs.filter {$0.stage == "Mixing"}
+                    let mixingCount = mixedSongs.count
                     ZStack {
                         RoundedRectangle(cornerRadius: 15,style: .continuous)
                             .background(
@@ -243,7 +256,7 @@ struct MainView : View {
                             .opacity(0.1)
                             .padding(.leading, 8.0)
                         HStack {
-                            SubsectionView(title: "Mixing", songs: mixedSongs)
+                            SubsectionView(songCount: mixingCount, title: "Mixing", songs: mixedSongs)
                             Spacer()
                           //  addButton(action: {
                           //      // Your action code here, for example:
@@ -263,6 +276,7 @@ struct MainView : View {
                     Spacer()
                     // arranging row
                     let arrangingSongs = songs.filter {$0.stage == "Arranging"}
+                    let arrangingCount = arrangingSongs.count
                     ZStack {
                         RoundedRectangle(cornerRadius: 15,style: .continuous)
                             .background(
@@ -272,7 +286,7 @@ struct MainView : View {
                             .opacity(0.1)
                             .padding(.leading, 8.0)
                         HStack {
-                            SubsectionView(title: "Arranging", songs: arrangingSongs)
+                            SubsectionView(songCount: arrangingCount, title: "Arranging", songs: arrangingSongs)
                             Spacer()
                             
                            
@@ -293,6 +307,7 @@ struct MainView : View {
                     
                     // ideas row
                     let ideaSongs = songs.filter {$0.stage == "Ideas"}
+                    let ideaCount = ideaSongs.count
                     ZStack {
                         RoundedRectangle(cornerRadius: 15,style: .continuous)
                             .background(
@@ -302,7 +317,7 @@ struct MainView : View {
                             .opacity(0.1)
                             .padding(.leading, 8.0)
                         HStack {
-                            SubsectionView(title: "Ideas", songs: ideaSongs)
+                            SubsectionView(songCount: ideaCount, title: "Ideas", songs: ideaSongs)
                             Spacer()
                             
                            
@@ -322,7 +337,7 @@ struct MainView : View {
                     
                     // WE ARE SO BACK
                     // all row this where im trying to insert the songs from the db
-                    
+                    let allCount = songs.count
                     ZStack {
                         RoundedRectangle(cornerRadius: 15,style: .continuous)
                             .background(
@@ -332,7 +347,7 @@ struct MainView : View {
                             .opacity(0.1)
                             .padding(.leading, 8.0)
                         HStack {
-                            SubsectionView(title: "All", songs: songs)
+                            SubsectionView(songCount: allCount, title: "All", songs: songs)
                             Spacer()
                             
                            

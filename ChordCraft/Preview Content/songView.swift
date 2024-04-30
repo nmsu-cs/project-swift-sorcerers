@@ -110,7 +110,7 @@ struct songView: View {
                                         .bold()
                                         .padding()
                                     
-                                    Text(currentSong?.title ?? "No Title")
+                                    Text(currentSong?.title ?? "No Title ⚠️")
                                         .padding()
                                         .offset(y: 20)
                                 }
@@ -129,7 +129,7 @@ struct songView: View {
                                         .bold()
                                         .padding()
                                     
-                                    Text(currentSong?.stage ?? "No Stage")
+                                    Text(currentSong?.stage ?? "No Stage ⚠️")
                                         .padding()
                                         .offset(y: 20)
                                         
@@ -231,7 +231,7 @@ struct songView: View {
                                             .bold()
                                             .padding()
                                         
-                                        Text(currentSong?.genre ?? "Unknown")
+                                        Text(currentSong?.genre ?? "Unknown ⚠️")
                                             .padding()
                                             .offset(y: 20)
                                     }
@@ -250,7 +250,7 @@ struct songView: View {
                                             .bold()
                                             .padding()
                                         
-                                        Text(currentSong?.key ?? "Unknown")
+                                        Text(currentSong?.key ?? "Unknown ⚠️")
                                             .padding()
                                             .offset(y: 20)
                                     }
@@ -271,7 +271,7 @@ struct songView: View {
 
 struct songView_Previews: PreviewProvider {
     static var previews: some View {
-        // Make the sample song optional here
+        // Make the sample song optional 
              let sampleSong: song? = song(title: "Good Morning", filePath: "asdfasdf", tempo: 120, genre: "Rap", key: "F# Minor", starRating: 3, notes: "A great song", sta: "Completed")
              
              // Create a constant binding to an optional song
