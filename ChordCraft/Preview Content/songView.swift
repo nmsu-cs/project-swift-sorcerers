@@ -15,8 +15,36 @@ import AppKit
 struct songView: View {
     @Binding var showingSongView: Bool
     @Binding var currentSong: song?
-   // @Environment(\.colorScheme) var colorScheme
-    //var currentSong: song
+  
+    @State private var editingTitle: Bool = false
+    @State private var editingStage: Bool = false
+    @State private var editingRating: Bool = false
+    @State private var editingTempo: Bool = false
+    @State private var editingGenre: Bool = false
+    @State private var editingKey: Bool = false
+    @State private var editingNotes: Bool = false
+    
+    @State private var songTitle: String = ""
+    @State private var songStage: String = ""
+    @State private var songKey: String = ""
+    @State private var songGenre: String = ""
+    @State private var songRating: Double = 0
+    @State private var songRatingText: String = ""
+    @State private var songTempo: Double = 0
+    @State private var songTempoText: String = ""
+    @State private var songNotesText: String = ""
+
+    
+    @State private var isHoveringTitle: Bool = false
+    @State private var isHoveringStage: Bool = false
+    @State private var isHoveringRating: Bool = false
+    @State private var isHoveringTempo: Bool = false
+    @State private var isHoveringGenre: Bool = false
+    @State private var isHoveringKey: Bool = false
+    @State private var isHoveringNotes: Bool = false
+    
+    // for drop down menu in stage
+    let options = ["Completed", "Mastering", "Mixing", "Arranging", "Ideas"]
     
     func openFile(at path: String) {
             let url = URL(fileURLWithPath: path)
@@ -95,9 +123,10 @@ struct songView: View {
                                  )
                                 .opacity(0.2)
                                 .frame(width: 80, height: 75)
-                            VStack{
-                                ZStack(alignment: .topLeading)
-                                {
+                            
+                            // title box
+                            VStack {
+                                ZStack(alignment: .topLeading) {
                                     RoundedRectangle(cornerRadius: 10)
                                         .fill(.white)
                                         .background(
@@ -106,17 +135,59 @@ struct songView: View {
                                          )
                                         .opacity(0.2)
                                         .frame(width: 150, height: 70)
-                                    Text("Title")
-                                        .bold()
-                                        .padding()
-                                    
-                                    Text(currentSong?.title ?? "No Title ⚠️")
-                                        .padding()
-                                        .offset(y: 20)
+
+                                    if editingTitle {
+                                        VStack(alignment: .leading) {
+                                            Text("Title")
+                                                .bold()
+                                                .padding()
+                                                .padding(.top,-1)
+                                            
+                                            TextField("Enter title", text: $songTitle, onCommit: {
+                                                currentSong?.title = songTitle
+                                                editingTitle = false
+                                            })
+                                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                                            .frame(maxWidth: 120)
+                                            .padding(.top, -22)
+                                            .padding(.leading, 4)
+                                            .onAppear {
+                                                songTitle = currentSong?.title ?? ""
+                                        }
+                                        }
+                                    } else {
+                                        VStack(alignment: .leading) {
+                                            HStack {
+                                                Text("Title")
+                                                    .bold()
+                                                    .padding(.leading, 1)
+                                                .padding(.top,14)
+                                                
+                                                //Spacer()
+                                                
+                                                Image(systemName: "pencil")
+                                                    .padding(.leading,70)
+                                                    .opacity(isHoveringTitle ? 1 : 0)
+                                                    .animation(.default, value: isHoveringTitle)
+                                                    .padding(.trailing, 1)
+                                            }
+                                            Text(currentSong?.title ?? "No Title ⚠️")
+                                                .padding(.top,-4)
+                                        }
+                                        .padding(.horizontal)
+                                        .onTapGesture {
+                                            editingTitle = true
+                                        }
+                                    }
                                 }
-                            } // title box
-                            VStack{
-                                ZStack(alignment: .topLeading){
+                                .onHover { hover in
+                                               isHoveringTitle = hover
+                                           }
+                            }
+                            
+                            // stage box
+                            VStack {
+                                ZStack(alignment: .topLeading) {
                                     RoundedRectangle(cornerRadius: 10)
                                         .fill(.white)
                                         .background(
@@ -125,18 +196,66 @@ struct songView: View {
                                          )
                                         .opacity(0.2)
                                         .frame(width: 150, height: 70)
-                                    Text("Stage")
-                                        .bold()
-                                        .padding()
-                                    
-                                    Text(currentSong?.stage ?? "No Stage ⚠️")
-                                        .padding()
-                                        .offset(y: 20)
-                                        
+
+                                    if editingStage {
+                                        VStack(alignment: .leading) {
+                                            Text("Stage")
+                                                .bold()
+                                                .padding()
+                                                .padding(.top,-1)
+                                            
+                                            Menu {
+                                                                      ForEach(options, id: \.self) { option in
+                                                                          Button(option, action: {
+                                                                              currentSong?.stage = option
+                                                                              editingStage = false
+                                                                          })
+                                                                      }
+                                                                  } label: {
+                                                                      Label(currentSong?.stage ?? "Select stage", systemImage: "chevron.down")
+                                                                          .padding(.horizontal, 60)
+                                                                          .padding(.top, 7)
+                                                                          .padding(.bottom, 7)
+                                                                          .background(Color.gray)
+                                                                          .opacity(0.3)
+                                                                          .cornerRadius(15)
+                                                                          .frame(maxWidth: 40)
+                                                                  }
+                                        }
+                                    } else {
+                                        VStack(alignment: .leading) {
+                                            HStack {
+                                                Text("Stage")
+                                                    .bold()
+                                                    .padding(.leading, 1)
+                                                .padding(.top,14)
+                                                
+                                                //Spacer()
+                                                
+                                                Image(systemName: "pencil")
+                                                    .padding(.leading,56)
+                                                    .opacity(isHoveringStage ? 1 : 0)
+                                                    .animation(.default, value: isHoveringStage)
+                                                    .padding(.trailing, 1)
+                                            }
+                                            Text(currentSong?.stage ?? "No stage ⚠️")
+                                                .padding(.top,-4)
+                                        }
+                                        .padding(.horizontal)
+                                        .onTapGesture {
+                                            editingStage = true
+                                        }
+                                    }
                                 }
-                            } // stage box
-                            VStack{
-                                ZStack(alignment: .topLeading){
+                                .onHover { hover in
+                                               isHoveringStage = hover
+                                           }
+                            }
+                            
+                            // rating box
+                           
+                            VStack {
+                                ZStack(alignment: .topLeading) {
                                     RoundedRectangle(cornerRadius: 10)
                                         .fill(.white)
                                         .background(
@@ -145,20 +264,70 @@ struct songView: View {
                                          )
                                         .opacity(0.2)
                                         .frame(width: 150, height: 70)
-                                    Text("Rating")
-                                        .bold()
-                                        .padding()
-                                    
-                                    Text(String(repeating: "★", count: Int(currentSong?.starRating ?? 0)))
-                                        .padding()
-                                        .offset(y: 20)
+
+                                    if editingRating {
+                                        VStack(alignment: .leading) {
+                                            Text("Rating")
+                                                .bold()
+                                                .padding()
+                                                .padding(.top,-1)
+                                            
+                                            TextField("Enter rating", text: $songRatingText, onCommit: {
+                                                if let rating = Double(songRatingText) {
+                                                               currentSong?.starRating = rating
+                                                           }
+                                                editingRating = false
+                                            })
+                                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                                            .frame(maxWidth: 120)
+                                            .padding(.top, -22)
+                                            .padding(.leading, 4)
+                                            .onAppear {
+                                                if let rating = currentSong?.starRating {
+                                                               songRatingText = String(rating)
+                                                           }
+                                        }
+                                        }
+                                    } else {
+                                        VStack(alignment: .leading) {
+                                            HStack() {
+                                                Text("Rating")
+                                                    .bold()
+                                                    .padding(.leading, 1)
+                                                    .padding(.top,14)
+                                                    .lineLimit(1)  // Ensures the text does not wrap
+                                                   // .frame(maxWidth: 200)
+                                                    
+                                                
+                                                Spacer()
+                                                
+                                                Image(systemName: "pencil")
+                                                   // .padding(.leading,70)
+                                                    .opacity(isHoveringRating ? 1 : 0)
+                                                    .animation(.default, value: isHoveringRating)
+                                                    .padding(.trailing, 1)
+                                            }
+                                            Text(String(repeating: "★", count: Int(currentSong?.starRating ?? 0)))
+                                                .padding(.top,-4)
+                                        }
+                                        .padding(.horizontal)
+                                        .onTapGesture {
+                                            editingRating = true
+                                        }
+                                    }
                                 }
-                            } // rating box
-                        } // end of top horizontal
+                                .onHover { hover in
+                                               isHoveringRating = hover
+                                           }
+                            }
+                            
+                        } // end of top horizontal stack
                         
                         HStack(spacing: 20){
-                            VStack{
-                                ZStack (alignment: .topLeading){
+                            
+                            // notes box
+                            VStack {
+                                ZStack(alignment: .topLeading) {
                                     RoundedRectangle(cornerRadius: 10)
                                         .fill(.white)
                                         .background(
@@ -167,15 +336,57 @@ struct songView: View {
                                          )
                                         .opacity(0.2)
                                         .frame(width: 250, height: 160)
-                                    Text("Description")
-                                        .bold()
-                                        .padding()
-                                    
-                                    Text(currentSong?.notes ?? "None") // have to check that this wont go out of the white
-                                        .padding()
-                                        .offset(y: 20)
+
+                                    if editingNotes {
+                                        VStack(alignment: .leading) {
+                                            Text("Notes")
+                                                .bold()
+                                                .padding()
+                                                .padding(.top,-1)
+                                            
+                                            TextField("Enter notes", text: $songNotesText, onCommit: {
+                                                currentSong?.notes = songNotesText
+                                                editingNotes = false
+                                            })
+                                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                                            .frame(maxWidth: 120)
+                                            .padding(.top, -22)
+                                            .padding(.leading, 4)
+                                            .onAppear {
+                                                songNotesText = currentSong?.notes ?? ""
+                                        }
+                                        }
+                                    } else {
+                                        VStack(alignment: .leading) {
+                                            HStack {
+                                                Text("Notes")
+                                                    .bold()
+                                                    .padding(.leading, 1)
+                                                .padding(.top,14)
+                                                
+                                                Spacer()
+                                                
+                                                Image(systemName: "pencil")
+                                                   // .padding(.leading,70)
+                                                    .opacity(isHoveringNotes ? 1 : 0)
+                                                    .animation(.default, value: isHoveringNotes)
+                                                    .padding(.trailing, 1)
+                                            }
+                                            Text(currentSong?.notes ?? "No notes ⚠️")
+                                                .padding(.top,-4)
+                                        }
+                                        .padding(.horizontal)
+                                        .onTapGesture {
+                                            editingNotes = true
+                                        }
+                                    }
                                 }
-                            } // notes box
+                                .onHover { hover in
+                                               isHoveringNotes = hover
+                                           }
+                            } // end of genre box
+                            
+                            
                             VStack (spacing: 20){
                                 VStack{
                                     ZStack (alignment: .topLeading){
@@ -196,8 +407,10 @@ struct songView: View {
                                             .offset(y: 20)
                                     }
                                 } // date box
-                                VStack{
-                                    ZStack (alignment: .topLeading){
+                                
+                                // tempo box
+                                VStack {
+                                    ZStack(alignment: .topLeading) {
                                         RoundedRectangle(cornerRadius: 10)
                                             .fill(.white)
                                             .background(
@@ -206,19 +419,70 @@ struct songView: View {
                                              )
                                             .opacity(0.2)
                                             .frame(width: 150, height: 70)
-                                        Text("Tempo")
-                                            .bold()
-                                            .padding()
-                                        
-                                        Text("\(currentSong?.tempo ?? 0, specifier: "%.0f") BPM")
-                                            .padding()
-                                            .offset(y: 20)
+
+                                        if editingTempo {
+                                            VStack(alignment: .leading) {
+                                                Text("Tempo")
+                                                    .bold()
+                                                    .padding()
+                                                    .padding(.top,-1)
+                                                
+                                                TextField("Enter tempo", text: $songTempoText, onCommit: {
+                                                    if let tempo = Double(songTempoText) {
+                                                                    currentSong?.tempo = tempo
+                                                                } else {
+                                                                    // Handle the case where the conversion fails
+                                                                    print("Invalid number entered")
+                                                                }
+                                                    editingTempo = false
+                                                })
+                                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                                .frame(maxWidth: 120)
+                                                .padding(.top, -22)
+                                                .padding(.leading, 4)
+                                                .onAppear {
+                                                    if let tempo = currentSong?.tempo {
+                                                        songTempoText = String(tempo)
+                                                    }
+                                                }
+                                            }
+                                        } else {
+                                            VStack(alignment: .leading) {
+                                                HStack {
+                                                    Text("Tempo")
+                                                        .bold()
+                                                        .padding(.leading, 1)
+                                                    .padding(.top,14)
+                                                    
+                                                    Spacer()
+                                                    
+                                                    Image(systemName: "pencil")
+                                                       // .padding(.leading,70)
+                                                        .opacity(isHoveringTempo ? 1 : 0)
+                                                        .animation(.default, value: isHoveringTempo)
+                                                        .padding(.trailing, 1)
+                                                }
+                                                Text(String(format: "%.1f", currentSong?.tempo ?? 0) + " BPM")
+                                                    .padding(.top,-4)
+                                            }
+                                            .padding(.horizontal)
+                                            .onTapGesture {
+                                                editingTempo = true
+                                            }
+                                        }
                                     }
-                                } // tempo box
-                            }
+                                    .onHover { hover in
+                                                   isHoveringTempo = hover
+                                               }
+                                }
+                            } // end of tempo box
+                            
+                            
                             VStack (spacing: 20){
-                                VStack{
-                                    ZStack(alignment: .topLeading){
+                                
+                                // genre box
+                                VStack {
+                                    ZStack(alignment: .topLeading) {
                                         RoundedRectangle(cornerRadius: 10)
                                             .fill(.white)
                                             .background(
@@ -227,17 +491,59 @@ struct songView: View {
                                              )
                                             .opacity(0.2)
                                             .frame(width: 150, height: 70)
-                                        Text("Genre")
-                                            .bold()
-                                            .padding()
-                                        
-                                        Text(currentSong?.genre ?? "Unknown ⚠️")
-                                            .padding()
-                                            .offset(y: 20)
+
+                                        if editingGenre {
+                                            VStack(alignment: .leading) {
+                                                Text("Genre")
+                                                    .bold()
+                                                    .padding()
+                                                    .padding(.top,-1)
+                                                
+                                                TextField("Enter genre", text: $songGenre, onCommit: {
+                                                    currentSong?.genre = songGenre
+                                                    editingGenre = false
+                                                })
+                                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                                .frame(maxWidth: 120)
+                                                .padding(.top, -22)
+                                                .padding(.leading, 4)
+                                                .onAppear {
+                                                    songGenre = currentSong?.genre ?? ""
+                                            }
+                                            }
+                                        } else {
+                                            VStack(alignment: .leading) {
+                                                HStack {
+                                                    Text("Genre")
+                                                        .bold()
+                                                        .padding(.leading, 1)
+                                                    .padding(.top,14)
+                                                    
+                                                    Spacer()
+                                                    
+                                                    Image(systemName: "pencil")
+                                                       // .padding(.leading,70)
+                                                        .opacity(isHoveringGenre ? 1 : 0)
+                                                        .animation(.default, value: isHoveringGenre)
+                                                        .padding(.trailing, 1)
+                                                }
+                                                Text(currentSong?.genre ?? "No genre ⚠️")
+                                                    .padding(.top,-4)
+                                            }
+                                            .padding(.horizontal)
+                                            .onTapGesture {
+                                                editingGenre = true
+                                            }
+                                        }
                                     }
-                                } // genre box
-                                VStack{
-                                    ZStack (alignment: .topLeading){
+                                    .onHover { hover in
+                                                   isHoveringGenre = hover
+                                               }
+                                } // end of genre box
+                                
+                                // key box
+                                VStack {
+                                    ZStack(alignment: .topLeading) {
                                         RoundedRectangle(cornerRadius: 10)
                                             .fill(.white)
                                             .background(
@@ -246,15 +552,55 @@ struct songView: View {
                                              )
                                             .opacity(0.2)
                                             .frame(width: 150, height: 70)
-                                        Text("Key")
-                                            .bold()
-                                            .padding()
-                                        
-                                        Text(currentSong?.key ?? "Unknown ⚠️")
-                                            .padding()
-                                            .offset(y: 20)
+
+                                        if editingKey {
+                                            VStack(alignment: .leading) {
+                                                Text("Key")
+                                                    .bold()
+                                                    .padding()
+                                                    .padding(.top,-1)
+                                                
+                                                TextField("Enter key", text: $songKey, onCommit: {
+                                                    currentSong?.key = songKey
+                                                    editingKey = false
+                                                })
+                                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                                .frame(maxWidth: 120)
+                                                .padding(.top, -22)
+                                                .padding(.leading, 4)
+                                                .onAppear {
+                                                    songKey = currentSong?.key ?? ""
+                                            }
+                                            }
+                                        } else {
+                                            VStack(alignment: .leading) {
+                                                HStack {
+                                                    Text("Key")
+                                                        .bold()
+                                                        .padding(.leading, 1)
+                                                    .padding(.top,14)
+                                                    
+                                                    Spacer()
+                                                    
+                                                    Image(systemName: "pencil")
+                                                       // .padding(.leading,70)
+                                                        .opacity(isHoveringKey ? 1 : 0)
+                                                        .animation(.default, value: isHoveringKey)
+                                                        .padding(.trailing, 1)
+                                                }
+                                                Text(currentSong?.key ?? "No Key ⚠️")
+                                                    .padding(.top,-4)
+                                            }
+                                            .padding(.horizontal)
+                                            .onTapGesture {
+                                                editingKey = true
+                                            }
+                                        }
                                     }
-                                } // key box
+                                    .onHover { hover in
+                                                   isHoveringKey = hover
+                                               }
+                                } // end of key box
                             }
                         } // end of bottom horizontal
                         
