@@ -15,12 +15,32 @@ import AppKit
 struct songView: View {
     @Binding var showingSongView: Bool
     @Binding var currentSong: song?
+    @State private var confirmDelete = false
    // @Environment(\.colorScheme) var colorScheme
     //var currentSong: song
     
     func openFile(at path: String) {
             let url = URL(fileURLWithPath: path)
             NSWorkspace.shared.open(url)
+        }
+    
+    // delete logic, error with getting permission to access files
+    func removeItem() {
+            guard let path = currentSong?.filePath else {
+                print("No song selected")
+                return
+            }
+
+            let fileManager = FileManager.default
+            let url = URL(fileURLWithPath: path)
+            do {
+                try fileManager.removeItem(at: url)
+                print("Folder deleted success")
+                showingSongView = false // Set showingSongView to false after deletion
+            } catch {
+                print("Error deleting the folder: \(error.localizedDescription)")
+                // Handle any errors that occur during deletion
+            }
         }
     
     var body: some View {
@@ -257,6 +277,23 @@ struct songView: View {
                                 } // key box
                             }
                         } // end of bottom horizontal
+                        
+                        // button for deleting folder with alerts
+                        Button(action: {
+                            confirmDelete = true
+                                }) {
+                            Text("Delete Folder").foregroundColor(.red).frame(width: 120, height: 30)
+                            }
+                            .alert(isPresented: $confirmDelete) {
+                            Alert(
+                                title: Text("Are you sure you want to delete this folder?"),
+                                message: Text("This action cannot be undone."),
+                                primaryButton: .destructive(Text("Yes")) {
+                                    removeItem()
+                                    },
+                                    secondaryButton: .cancel(Text("No"))
+                                )
+                            }
                         
                     }
                     .frame(maxWidth: 600)
