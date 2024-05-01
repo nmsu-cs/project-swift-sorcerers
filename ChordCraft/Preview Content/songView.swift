@@ -11,11 +11,13 @@
 
 import SwiftUI
 import AppKit
-
+import SwiftData
 struct songView: View {
     @Binding var showingSongView: Bool
     @Binding var currentSong: song?
     @State private var confirmDelete = false
+    @Environment(\.modelContext) public var modelContext // where songs are getting stored
+
    // @Environment(\.colorScheme) var colorScheme
     //var currentSong: song
     
@@ -24,6 +26,16 @@ struct songView: View {
             NSWorkspace.shared.open(url)
         }
     
+    // function that removes the current song from the database
+    private func deleteSong(songToRemove: song) -> Bool {
+        withAnimation {
+            modelContext.delete(songToRemove)
+            return true
+        }
+        return false // Return false if conversion fails
+    }
+
+
     // delete logic, error with getting permission to access files
     func removeItem() {
             guard let path = currentSong?.filePath else {
@@ -289,7 +301,9 @@ struct songView: View {
                                 title: Text("Are you sure you want to delete this folder?"),
                                 message: Text("This action cannot be undone."),
                                 primaryButton: .destructive(Text("Yes")) {
-                                    removeItem()
+                                    if deleteSong(songToRemove: currentSong! ) {
+                                        print("song is gone ")
+                                    }
                                     },
                                     secondaryButton: .cancel(Text("No"))
                                 )
