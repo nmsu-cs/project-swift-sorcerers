@@ -7,25 +7,30 @@
 
 
 import SwiftUI
-
+import SwiftData
 struct StartUpPage: View {  // start main
     // variables
     // content
     @State private var showProjects = false
     @State private var currentSelection = 0
-   
+    @Query private var Projects: [Project] // where songs are projects
+
     
     var body: some View {  // start body
        // ProjectView(showProjects: $showProjects)
         // .frame(minWidth: 600, minHeight: 400)
         
         NavigationView{ // start navigation view
-            
+                
+                var options: [Option] {
+                    [
+                        Option(title: "Settings", imageName: "gearshape") // Keep the "Settings" option
+                    ] + Projects.map { project in
+                        Option(title: project.projectName, imageName: "folder.fill")
+                    }
+                }
                 if showProjects {
-                    ListView(options: [
-                        Option(title: "Projects", imageName: "folder.fill"),
-                        Option(title: "Settings", imageName: "gearshape")
-                        ], currentSelection: $currentSelection)
+                    ListView(options:options, currentSelection: $currentSelection)
                     MainView()
                 } else {
                     SideView(showProjects: $showProjects)
