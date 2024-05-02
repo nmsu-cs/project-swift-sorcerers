@@ -8,7 +8,6 @@ import SwiftUI
 
 struct ContentView: View {
     @State var currentOption = 0     // State variable to track the current selected option
-    @State var showProjects = false
     
     let options: [Option] = [ // Options available in the list
         .init(title: "Projects", imageName: "folder.fill"),
@@ -24,7 +23,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             // Display the list of options
-            ListView(options: options, currentSelection: $currentOption, showProjects: $showProjects)
+            ListView(options: options, currentSelection: $currentOption)
             if let view = views[currentOption] {        // Display the view to the current selection
                 view
                 }
