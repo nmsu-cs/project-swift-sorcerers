@@ -26,7 +26,7 @@ class song {
         self.filePath = filePath
         // get the date of the system when init is called and set that to the date created of the song
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Define the date format you want
+        dateFormatter.dateFormat = "MMMM dd, yyyy" // Define the date format you want
         let currentDate = Date()
         let dateString = dateFormatter.string(from: currentDate)
         

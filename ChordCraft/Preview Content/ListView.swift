@@ -1,56 +1,124 @@
-
-
 import SwiftUI
+import SwiftData
+
 struct Option: Hashable { // Defines a struct to represent an option with a title and an image name
     let title: String
     let imageName: String
 }
 
-
-// information in row 
-struct SubsectionView: View {
-    let title: String
-    let items: [String]
-    @State private var isExpanded: Bool = true
+struct addButton: View {
+    var action: () -> Void
+    @State private var isHovering = false
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            
-            // row title
-            Text(title)
-                .font(.title)
-                .fontWeight(.medium)
-                .padding(.bottom, 5)
-
-            // songs
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 20) {
-                    ForEach(items, id: \.self) { _ in
-                        NavigationLink(destination: songView2()) {                                       HStack {
-                            Image(systemName: "folder.fill").foregroundColor(.white).padding()
-                            }
-                        }
-                    }
-                }
-               
-            }
-            .frame(maxWidth: .infinity)
-            
+        Button(action: action) {
+            Image(systemName: "plus")
+                .font(.system(size: isHovering ? 21 : 20))
+                .foregroundColor(isHovering ? .black.opacity(0.8) : .gray)
         }
-        .frame(minWidth: 500, maxWidth: .infinity, minHeight: 80, idealHeight: 80, maxHeight: 80)
+        .frame(width: 30, height: 30)
+        .buttonStyle(.plain)
+        .background(isHovering ? Color.gray.opacity(0.2) : Color.clear)
+        .cornerRadius(5)
+        .onHover { hover in
+            withAnimation(.easeInOut) {
+                isHovering = hover
+            }
+        }
+    }
+}
+
+
+// information in row
+struct SubsectionView: View {
+    @State private var isExpanded: Bool = true
+    @State private var selectedSong: song?
+    @State private var showingSongView = false
+    
+    let songCount: Int
+    let title: String
+    let songs: [song]
+
+   
+    var body: some View {
+        VStack(alignment: .leading) {
+            // row title
+            VStack(alignment: .leading) {
+                HStack {
+                    Text(title)
+                       // .padding(.leading, -4)
+                       // .padding(.top, -30)
+                        .font(.title2)
+                        .fontWeight(.regular)
+                        .foregroundColor(Color.gray)
+                   // .border(.blue)
+                    
+                    Button(action: {
+                                      withAnimation {
+                                          isExpanded.toggle()
+                                      }
+                                  }) {
+                                      Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
+                                          .foregroundColor(.white)
+                                          .padding(.horizontal,2)
+                                          .font(.system(size: 15))
+                                  }
+                                  .buttonStyle(PlainButtonStyle())
+                }
+                Text("\(songCount)")  // Using string interpolation to convert Int to String
+                    .font(.title2)
+                    .fontWeight(.light)
+                    .padding(.leading, 1)
+                
+            }
+            
+            // songs
+            if isExpanded {
+                ScrollView(.horizontal, showsIndicators: true) {
+                             HStack(spacing: 20) {
+                                 ForEach(songs) { song in
+                                     Button(action: {
+                                         self.selectedSong = song
+                                         self.showingSongView = true
+                                     }) {
+                                         VStack {
+                                             HStack {
+                                                 Image(systemName: "folder.fill")
+                                                     .padding()
+                                             }
+                                             Text(song.title)
+                                         }
+                                     }
+                                 } // end of for each
+                             }
+                            
+                         }
+                .sheet(isPresented: $showingSongView) {
+                   
+                        songView(showingSongView: $showingSongView, currentSong: $selectedSong)
+                            .frame(width:700, height: 400)
+                    
+                        
+                }
+                         .frame(maxWidth: .infinity)
+                       
+                      } // end of if
+        }
         // .border(.orange)
         .padding()
         .cornerRadius(10)
+       
+        
+        }
     }
-}
+    
+
 
 
 struct MainView : View {
     @State private var headerMessage: String = ""
     @State private var showingAddSongForm = false
-    @State private var isCompletedExpanded = true
-    @State private var isMasteringExpanded = true
-    @State private var isMixingExpanded = true
+    @Query private var songs: [song] // where songs are stored
     
     var body: some View {
         ZStack{
@@ -70,6 +138,8 @@ struct MainView : View {
                 
                 //Color.black.background()
                 VStack {
+                    
+                   
                     Spacer()
                     Text(headerMessage).font(.largeTitle)
                         .fontWeight(.semibold)
@@ -78,16 +148,32 @@ struct MainView : View {
                         //.border(.blue)
                         .padding(.leading)
                         .onAppear(perform: updateHeaderMessage) // calls function
-                    
-                       
                         Spacer()
-                    
-                    HStack {
-                        Text("Project").font(.title2).fontWeight(.semibold).padding(.leading)
                         Spacer()
-                        
+                            HStack {
+                                // Project title
+                                Text("Midnights").font(.title).fontWeight(.medium).padding(.leading)
+                                Spacer()
+                                addButton(action: {
+                                    // Your action code here, for example:
+                                    print("Button tapped")
+                                    showingAddSongForm = true
+                                    
+                                })
+                                .padding(.bottom,-20)
+                            } // end of hstack
+                            .sheet(isPresented: $showingAddSongForm) {
+                      AddsongForm(showingAddSongForm: $showingAddSongForm)
+                                    .frame(width: 800, height: 700)
                     }
+                           
                     
+                            HStack {
+                            // project by
+                            Text("Taylor Swift").font(.headline).fontWeight(.thin)
+                                             .padding(.leading, 17.0)
+                            Spacer()
+                            }
                     /*
                     Divider().frame(height: 2).foregroundColor(Color.white)
                     */
@@ -99,62 +185,89 @@ struct MainView : View {
                     Spacer()
                     Spacer()
                         
-                    
+                    let completedSongs = songs.filter {$0.stage == "Completed"}
+                    let completedCount = completedSongs.count
+
                     // loading rows in view
                     // completed row
                     ZStack {
                         RoundedRectangle(cornerRadius: 15,style: .continuous)
-                            .fill(Color.gray)
+                            .background(
+                                .ultraThinMaterial,
+                                in: RoundedRectangle(cornerRadius: 8, style: .continuous)
+                             )
                             .opacity(0.1)
                             .padding(.leading, 8.0)
                         HStack {
-                            SubsectionView(title: "Completed", items: ["Item 1", "Item 2","item 3","item 4"])
+                            SubsectionView(songCount: completedCount, title: "Completed", songs: completedSongs)
                             Spacer()
-                            Button(action: {
-                                withAnimation {
-                                    isCompletedExpanded.toggle()
-                                }
-                            }) {
-                                Image(systemName: isCompletedExpanded ? "chevron.up" : "chevron.down").foregroundColor(.white).padding()
-                            }
+                            
+                           
+                           // Image(systemName: "plus")
+                           // addButton(action: {
+                                // Your action code here, for example:
+                           //     print("Button tapped")
+                           // })
+
+                          
                         }
                         .padding()
+                       // .border(.blue)
                     }
-                    
+                    Spacer()
+                    Spacer()
                     // Mastering row
+                    let masteredSongs = songs.filter {$0.stage == "Mastering"}
+                    let masteringCount = masteredSongs.count
                     ZStack {
+                        
                         RoundedRectangle(cornerRadius: 15,style: .continuous)
-                            .fill(Color.gray)
+                            .background(
+                                .ultraThinMaterial,
+                                in: RoundedRectangle(cornerRadius: 8, style: .continuous)
+                             )
                             .opacity(0.1)
                             .padding(.leading, 8.0)
                         HStack {
-                            SubsectionView(title: "Mastering", items: ["Item 3", "Item 4", "Item 5"])
+                            SubsectionView(songCount: masteringCount, title: "Mastering", songs: masteredSongs)
                             Spacer()
+                            
+                           // addButton(action: {
+                           //     // Your action code here, for example:
+                           //     print("Button tapped")
+                           // })
                             
                         }
                         
                         .padding()
                     }
+                    Spacer()
+                    Spacer()
                     
                     // mixing row
+                    let mixedSongs = songs.filter {$0.stage == "Mixing"}
+                    let mixingCount = mixedSongs.count
                     ZStack {
                         RoundedRectangle(cornerRadius: 15,style: .continuous)
-                            .fill(Color.gray)
+                            .background(
+                                .ultraThinMaterial,
+                                in: RoundedRectangle(cornerRadius: 8, style: .continuous)
+                             )
                             .opacity(0.1)
                             .padding(.leading, 8.0)
                         HStack {
-                            SubsectionView(title: "Mixing", items: ["Item 6", "Item 7", "Item 8", "Item 9"])
+                            SubsectionView(songCount: mixingCount, title: "Mixing", songs: mixedSongs)
                             Spacer()
-                            addButton(action: {
-                                // Your action code here, for example:
-                                print("Button tapped")
-                                showingAddSongForm = true
-                                
-                            })
+                          //  addButton(action: {
+                          //      // Your action code here, for example:
+                          //      print("Button tapped")
+                          //      showingAddSongForm = true
+                          //
+                          //  })
                         }
-                        .sheet(isPresented: $showingAddSongForm) {
-                            AddsongForm(showingAddSongForm: $showingAddSongForm)
-                        }
+                        //.sheet(isPresented: $showingAddSongForm) {
+                        //    AddsongForm(showingAddSongForm: $showingAddSongForm)
+                        //}
                         .padding()
                         
                        
@@ -162,6 +275,8 @@ struct MainView : View {
                     Spacer()
                     Spacer()
                     // arranging row
+                    let arrangingSongs = songs.filter {$0.stage == "Arranging"}
+                    let arrangingCount = arrangingSongs.count
                     ZStack {
                         RoundedRectangle(cornerRadius: 15,style: .continuous)
                             .background(
@@ -171,15 +286,15 @@ struct MainView : View {
                             .opacity(0.1)
                             .padding(.leading, 8.0)
                         HStack {
-                            SubsectionView(title: "Arranging", items: ["Item 1", "Item 2","item 3","item 4"])
+                            SubsectionView(songCount: arrangingCount, title: "Arranging", songs: arrangingSongs)
                             Spacer()
                             
                            
                            // Image(systemName: "plus")
-                            addButton(action: {
-                                // Your action code here, for example:
-                                print("Button tapped")
-                            })
+                          //  addButton(action: {
+                          //      // Your action code here, for example:
+                          //      print("Button tapped")
+                          //  })
 
                           
                         }
@@ -189,7 +304,10 @@ struct MainView : View {
                     
                     Spacer()
                     Spacer()
-                    // all row
+                    
+                    // ideas row
+                    let ideaSongs = songs.filter {$0.stage == "Ideas"}
+                    let ideaCount = ideaSongs.count
                     ZStack {
                         RoundedRectangle(cornerRadius: 15,style: .continuous)
                             .background(
@@ -199,21 +317,53 @@ struct MainView : View {
                             .opacity(0.1)
                             .padding(.leading, 8.0)
                         HStack {
-                            SubsectionView(title: "All", items: ["Item 1", "Item 2","Item 2","Item 2","Item 2","Item 2","Item 2","Item 2","Item 2","Item 2","Item 2"])
+                            SubsectionView(songCount: ideaCount, title: "Ideas", songs: ideaSongs)
                             Spacer()
                             
                            
                            // Image(systemName: "plus")
-                            addButton(action: {
-                                // Your action code here, for example:
-                                print("Button tapped")
-                            })
+                          //  addButton(action: {
+                          //      // Your action code here, for example:
+                          //      print("Button tapped")
+                          //  })
 
                           
                         }
                         .padding()
                        // .border(.blue)
                     }
+                    Spacer()
+                    Spacer()
+                    
+                    // WE ARE SO BACK
+                    // all row this where im trying to insert the songs from the db
+                    let allCount = songs.count
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 15,style: .continuous)
+                            .background(
+                                .ultraThinMaterial,
+                                in: RoundedRectangle(cornerRadius: 8, style: .continuous)
+                             )
+                            .opacity(0.1)
+                            .padding(.leading, 8.0)
+                        HStack {
+                            SubsectionView(songCount: allCount, title: "All", songs: songs)
+                            Spacer()
+                            
+                           
+                           // Image(systemName: "plus")
+                          //  addButton(action: {
+                          //      // Your action code here, for example:
+                          //      print("Button tapped")
+                          //  })
+
+                          
+                        }
+                        .padding()
+                       // .border(.blue)
+                    }
+             
+
                    
                 }
                 
@@ -246,7 +396,6 @@ struct MainView : View {
 struct ListView: View {
     let options: [Option]    // Options available in the list
     @Binding var currentSelection: Int    // Binding to track the current selection
-    @Binding var showProjects: Bool
     
     var body: some View {
         VStack {
@@ -272,24 +421,9 @@ struct ListView: View {
                 .padding(.leading, -19)
                 .onTapGesture {    // Handle tap gesture on an option
                     currentSelection = index
-                    if index == 0 {
-                        showProjects = true
                     }
-                }
             }
             Spacer()
-            //back button
-            HStack {
-                Button(action: {
-                    showProjects = false
-                }) {
-                    Image(systemName: "arrowshape.backward.circle.fill")
-                        .font(.title2)
-                }
-                .padding()
-                Spacer()
-            }
-            
         }
     }
 }
@@ -297,6 +431,8 @@ struct ListView: View {
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
+            .frame(width: 900, height: 600)  // Specifies the frame size for the view
+                       .previewLayout(.sizeThatFits)
     }
 }
 
@@ -304,11 +440,11 @@ struct MainView_Previews: PreviewProvider {
 
 struct ListView_Previews: PreviewProvider {
     @State static var currentSelection = 0
-    @State static var showProjects = false
     static var previews: some View {
         ListView(options: [
             Option(title: "Projects", imageName: "folder.fill"),
             Option(title: "Settings", imageName: "gearshape")
-        ], currentSelection: $currentSelection, showProjects: $showProjects)
+        ], currentSelection: $currentSelection)
     }
 }
+

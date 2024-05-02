@@ -12,7 +12,8 @@ struct ContentView: View {
     
     let options: [Option] = [ // Options available in the list
         .init(title: "Projects", imageName: "folder.fill"),
-        .init(title: "Settings", imageName: "gearshape")]
+        .init(title: "Settings", imageName: "gearshape")
+    ]
     
     
     let views: [Int: AnyView] = [     // Mapping of option index to corresponding view
@@ -28,6 +29,7 @@ struct ContentView: View {
                 view
                 }
             }
+        
         //.frame(idealWidth: 800, idealHeight: 400)
     }
 }

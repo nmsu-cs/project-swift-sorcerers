@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2454B7C72BD455E000CC449A /* songView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2454B7C62BD455E000CC449A /* songView2.swift */; };
+		650F909A2BDC81090019DBC4 /* songView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650F90992BDC81090019DBC4 /* songView.swift */; };
+		65292A132BD836FA0027E7A8 /* showSongsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65292A122BD836FA0027E7A8 /* showSongsTest.swift */; };
 		AA0EF4482BB3E5550093867B /* ChordCraftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF4472BB3E5550093867B /* ChordCraftApp.swift */; };
 		AA0EF44A2BB3E5550093867B /* AddsongForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF4492BB3E5550093867B /* AddsongForm.swift */; };
 		AA0EF44C2BB3E5550093867B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EF44B2BB3E5550093867B /* Item.swift */; };
@@ -43,7 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2454B7C62BD455E000CC449A /* songView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = songView2.swift; path = "ChordCraft/Preview Content/songView2.swift"; sourceTree = SOURCE_ROOT; };
+		650F90992BDC81090019DBC4 /* songView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = songView.swift; sourceTree = "<group>"; };
+		65292A122BD836FA0027E7A8 /* showSongsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showSongsTest.swift; sourceTree = "<group>"; };
 		AA0EF4442BB3E5550093867B /* ChordCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChordCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA0EF4472BB3E5550093867B /* ChordCraftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordCraftApp.swift; sourceTree = "<group>"; };
 		AA0EF4492BB3E5550093867B /* AddsongForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddsongForm.swift; sourceTree = "<group>"; };
@@ -132,12 +134,9 @@
 				AA6D79DE2BD435B800F521DE /* Preview Assets.xcassets */,
 				AA6D79DA2BD4358500F521DE /* StartUpPage.swift */,
 				AA6D79D82BD4357F00F521DE /* ListView.swift */,
+				65292A122BD836FA0027E7A8 /* showSongsTest.swift */,
 				AA0EF4502BB3E5570093867B /* Preview Assets.xcassets */,
-				D92D50052BB4B6B300DE0664 /* ListView.swift */,
-				D96551842BC75D9700979DED /* StartUpPage.swift */,
-				D92D500B2BB4CF4B00DE0664 /* SimpleCompoApp.swift */,
-				2454B7C62BD455E000CC449A /* songView2.swift */,
-				AA0EF45A2BB3E5570093867B /* ChordCraftTests */,
+				650F90992BDC81090019DBC4 /* songView.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -295,13 +294,14 @@
 				AA0EF44A2BB3E5550093867B /* AddsongForm.swift in Sources */,
 				AA0EF44C2BB3E5550093867B /* Item.swift in Sources */,
 				AA6D79D92BD4357F00F521DE /* ListView.swift in Sources */,
+				65292A132BD836FA0027E7A8 /* showSongsTest.swift in Sources */,
 				AA6D79DB2BD4358500F521DE /* StartUpPage.swift in Sources */,
 				AA6D79E22BD4360700F521DE /* ContentView.swift in Sources */,
 				AA9ADC8F2BD42C5900A99E28 /* AudioPlayerButton.swift in Sources */,
 				AA6D79E42BD43F7C00F521DE /* AddProjectFrom.swift in Sources */,
-				2454B7C72BD455E000CC449A /* songView2.swift in Sources */,
 				AA0EF4482BB3E5550093867B /* ChordCraftApp.swift in Sources */,
 				AA1D2F772BD08792002D8F34 /* Project.swift in Sources */,
+				650F909A2BDC81090019DBC4 /* songView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
