@@ -27,7 +27,7 @@ The project is structured as follows:
 - To browse and understand the project structure:
 1. Clone the repository to your local machine
 2. Open the project in XCode.
-3. Navigate through the various folders and files to explore the project strucutre and code.
+3. Navigate through the various folders and files to explore the project structure and code.
 
 ** Building **
 - To build and install the ChordCraft project, follow these steps below:
