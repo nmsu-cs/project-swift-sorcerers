@@ -34,6 +34,10 @@ struct songView: View {
     @State private var songTempoText: String = ""
     @State private var songNotesText: String = ""
 
+    @State private var confirmDelete = false
+    @Environment(\.modelContext) public var modelContext // where songs are getting stored
+
+    
     
     @State private var isHoveringTitle: Bool = false
     @State private var isHoveringStage: Bool = false
@@ -50,6 +54,17 @@ struct songView: View {
             let url = URL(fileURLWithPath: path)
             NSWorkspace.shared.open(url)
         }
+    
+    
+    // function that removes the current song from the database
+      private func deleteSong(songToRemove: song) -> Bool {
+          withAnimation {
+              modelContext.delete(songToRemove)
+              return true
+          }
+          return false // Return false if conversion fails
+      }
+    
     
     var body: some View {
         
@@ -603,7 +618,23 @@ struct songView: View {
                                 } // end of key box
                             }
                         } // end of bottom horizontal
-                        
+                        Button(action: {
+                            confirmDelete = true
+                                }) {
+                            Text("Delete Folder").foregroundColor(.red).frame(width: 120, height: 30)
+                            }
+                            .alert(isPresented: $confirmDelete) {
+                            Alert(
+                                title: Text("Are you sure you want to delete this folder?"),
+                                message: Text("This action cannot be undone."),
+                                primaryButton: .destructive(Text("Yes")) {
+                                    if deleteSong(songToRemove: currentSong! ) {
+                                        print("song is gone ")
+                                    }
+                                    },
+                                    secondaryButton: .cancel(Text("No"))
+                                )
+                            }
                     }
                     .frame(maxWidth: 600)
                 }
